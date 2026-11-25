@@ -463,7 +463,7 @@ input:focus, select:focus, textarea:focus {
 .popup-total { display: flex; justify-content: space-between; padding: 15px 0; border-top: 2px solid #cbd5e1; font-size: 16px; font-weight: bold; color: #ea580c; text-align: left; }
 .popup-footer { display: flex; justify-content: flex-end; gap: 10px; }
 
-/* ================= CSS CHUYÊN DỤNG CHO IN BIÊN BẢN (KHẮC PHỤC TRÀN CHỮ & BỎ HOÀN TOÀN VIỀN NGOÀI) ================= */
+/* ================= CSS IN BIÊN BẢN ================= */
 @media print {
     @page {
         size: A4 portrait;
@@ -478,7 +478,6 @@ input:focus, select:focus, textarea:focus {
         visibility: visible !important;
     }
 
-    /* Đảm bảo tuyệt đối không có viền, khung bao ngoài hay bóng đổ khi in */
     #subViewBienBan {
         position: absolute !important;
         left: 0 !important;
@@ -510,17 +509,18 @@ input:focus, select:focus, textarea:focus {
     }
 
     .bb-grid-container div, .grid-ban-giao div {
-        word-break: break-all !important;
+        word-break: break-word !important;
         overflow-wrap: break-word !important;
         white-space: normal !important;
     }
 
-    .bb-grid-container span, .grid-ban-giao span, 
+    .bb-grid-container span, .grid-ban-giao span,
     .bb-grid-container input, .grid-ban-giao input {
         font-weight: bold !important;
         color: #000 !important;
     }
 
+    /* ---------- BẢNG HÀNG LỖI ---------- */
     table {
         width: 100% !important;
         border-collapse: collapse !important;
@@ -531,22 +531,59 @@ input:focus, select:focus, textarea:focus {
 
     th, td {
         border: 1.5px solid #000 !important;
-        padding: 6px 6px !important;
+        padding: 6px 5px !important;
         font-size: 11px !important;
         color: #000 !important;
         vertical-align: middle !important;
-        word-break: break-all !important;
+        word-break: break-word !important;
         overflow-wrap: break-word !important;
         white-space: normal !important;
+        background: #fff !important;
     }
 
-    th:nth-child(1), td:nth-child(1) { width: 32px !important; text-align: center; }
-    th:nth-child(2), td:nth-child(2) { width: 90px !important; }
-    th:nth-child(3), td:nth-child(3) { width: auto !important; }
-    th:nth-child(4), td:nth-child(4) { width: 120px !important; }
-    th:nth-child(5), td:nth-child(5) { width: 38px !important; text-align: center; }
-    th:nth-child(6), td:nth-child(6) { width: 95px !important; }
+    /* Ẩn cột XÓA khi in (cột thứ 7) */
+    th:nth-child(7), td:nth-child(7) { display: none !important; }
 
+    th:nth-child(1), td:nth-child(1) { width: 30px !important;  text-align: center; }
+    th:nth-child(2), td:nth-child(2) { width: 80px !important;  text-align: center; }
+    th:nth-child(3), td:nth-child(3) { width: auto !important;  text-align: left; }
+    th:nth-child(4), td:nth-child(4) { width: 115px !important; text-align: center; }
+    th:nth-child(5), td:nth-child(5) { width: 36px !important;  text-align: center; }
+    th:nth-child(6), td:nth-child(6) { width: 135px !important; text-align: center; }
+
+    /* Bỏ viền, nền, bo góc của ô nhập để chữ trông như in thường */
+    table input,
+    table select,
+    table textarea {
+        border: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        font-family: inherit !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        color: #000 !important;
+        text-align: center !important;
+        text-transform: uppercase !important;
+        -webkit-appearance: none !important;
+        appearance: none !important;
+    }
+
+    table input[type="number"]::-webkit-inner-spin-button,
+    table input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none !important;
+        display: none !important;
+    }
+
+    /* Tên hàng căn trái cho dễ đọc */
+    td:nth-child(3) input { text-align: left !important; }
+
+    /* Ô nhập không nằm trong bảng (số phiếu, người giao...) */
     input[type="text"] {
         text-transform: uppercase !important;
     }
@@ -561,29 +598,10 @@ input:focus, select:focus, textarea:focus {
         color: #000 !important;
         outline: none !important;
     }
-}
-/* Lớp phủ loading toàn màn hình mượt mà, không giật trang */
-#globalLoadingOverlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(15, 23, 42, 0.6);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(2px);
-}
 
-.spinner-icon {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #2563eb;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    /* Giữ nền in nếu có (ví dụ ô tiêu đề bảng) */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
 }
