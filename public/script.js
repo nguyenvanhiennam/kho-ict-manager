@@ -2271,14 +2271,21 @@ function guiEmailBienBan() {
         "Trân trọng,\nKho Tổng FPT Shop Miền Nam";
 
     var subject = "[BIÊN BẢN KIỂM HÀNG] Phiếu: " + soPhieu + " - NCC: " + ncc;
-    var mailtoLink = "mailto:namnvh@fpt.com" +
-        "?cc=" + encodeURIComponent(ccFiltered.join(',')) +
+
+    // Mở form soạn thư trên Outlook web (Microsoft 365).
+    // Nếu dùng Outlook cá nhân (hotmail/outlook.com) thì đổi thành:
+    // https://outlook.live.com/mail/deeplink/compose
+    var outlookLink = "https://outlook.office.com/mail/deeplink/compose" +
+        "?to=" + encodeURIComponent("namnvh@fpt.com") +
+        "&cc=" + encodeURIComponent(ccFiltered.join(';')) +
         "&subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
 
-    window.location.href = mailtoLink;
+    var cuaSo = window.open(outlookLink, '_blank');
+    if (!cuaSo) {
+        alert("⚠️ Trình duyệt đang chặn cửa sổ bật lên. Hãy cho phép pop-up cho trang này rồi bấm gửi lại!");
+    }
 }
-
 // ==========================================
 // 4. THÔNG BÁO KẾ HOẠCH GIAO HÀNG TỚI NVC
 // ==========================================
