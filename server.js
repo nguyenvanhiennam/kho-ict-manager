@@ -10,12 +10,23 @@ const nodemailer = require('nodemailer'); // Chỉ dùng cho API gửi email (t�
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || '127.0.0.1'; // Windows nội bộ: đặt HOST=0.0.0.0
-const filePath = path.join(__dirname, 'database.json');
-const uploadDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
-const upload = multer({ dest: uploadDir });
+const HOST = process.env.HOST || '0.0.0.0';
 
+// Thư mục lưu dữ liệu: trên Render đặt DATA_DIR=/data (Disk), chạy trên máy thì dùng thư mục dự án
+const DATA_DIR = process.env.DATA_DIR || __dirname;
+const filePath = path.join(DATA_DIR, 'database.json');
+const uploadDir = path.join(DATA_DIR, 'uploads');
+
+if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
+
+// Lần đầu chạy trên Disk: copy database.json mẫu trong dự án sang Disk
+const seedFile = path.join(__dirname, 'database.json');
+if (!fs.existsSync(filePath) && fs.existsSync(seedFile)) {
+    fs.copyFileSync(seedFile, filePath);
+}
+
+const upload = multer({ dest: uploadDir });
 // Middleware
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
