@@ -885,18 +885,29 @@ function moPopupBaoCaoNhap() {
     if (!popup || !tbody) return;
 
     var now = new Date();
-    var ngayStr = String(now.getDate()).padStart(2, '0') + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + now.getFullYear();
+    var dd = String(now.getDate()).padStart(2, '0');
+    var mm = String(now.getMonth() + 1).padStart(2, '0');
+    var yyyy = now.getFullYear();
+    var ngayStr = dd + '-' + mm + '-' + yyyy;
     if (titleEl) titleEl.innerText = "KHO MIỀN NAM GỬI BÁO CÁO NHẬP - NGÀY " + ngayStr;
 
-    if (!globalKeHoachData || globalKeHoachData.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="9" style="padding: 20px; text-align: center; color: #64748b;">Chưa có dữ liệu báo cáo.</td></tr>`;
+    // Chỉ lấy các dòng của ngày hôm nay (giống logic của bảng Kế Hoạch Hiện Tại)
+    var dataHomNay = (globalKeHoachData || []).filter(function (item) {
+        if (!item.ngay || item.ngay === '1/1/1970') return true;
+        var s = item.ngay.toString().trim();
+        return s === ngayStr || s.includes(yyyy + '-' + mm + '-' + dd) || s.includes(dd + '-' + mm + '-' + yyyy);
+    });
+
+    if (dataHomNay.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" style="padding: 20px; text-align: center; color: #64748b;">Chưa có dữ liệu báo cáo cho ngày hôm nay (${ngayStr}).</td></tr>`;
+        if (tongKetTopDiv) tongKetTopDiv.innerHTML = "";
         popup.style.display = 'flex';
         return;
     }
 
     var html = "";
     var totalKh = 0, totalThucNhan = 0, totalConLai = 0;
-    globalKeHoachData.forEach(function (item, index) {
+    dataHomNay.forEach(function (item, index) {
         var slKh = parseInt(item.slKeHoach) || 0;
         var slTn = parseInt(item.slThucNhan) || 0;
         var slCl = slKh - slTn;
@@ -906,7 +917,7 @@ function moPopupBaoCaoNhap() {
 
         html += `<tr style="border-bottom: 1px solid #e2e8f0; text-align: center;">`;
         html += `<td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">${index + 1}</td>`;
-        html += `<td style="padding: 8px; border: 1px solid #e2e8f0; white-space: nowrap;">${item.ngay || ''}</td>`;
+        html += `<td style="padding: 8px; border: 1px solid #e2e8f0; white-space: nowrap;">${item.ngay || ngayStr}</td>`;
         html += `<td style="padding: 8px; border: 1px solid #e2e8f0; white-space: nowrap; font-weight: 600;">${item.kho || 'HO-HCM'}</td>`;
         html += `<td style="padding: 8px 10px; border: 1px solid #e2e8f0; text-align: left; font-weight: bold; color: #1e293b; max-width: 220px; white-space: normal; word-break: break-word;">${item.ncc || ''}</td>`;
         html += `<td style="padding: 8px; border: 1px solid #e2e8f0; white-space: nowrap;">${item.loaiYc || 'Nhập'}</td>`;
