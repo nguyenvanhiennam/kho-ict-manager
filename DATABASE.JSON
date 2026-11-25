@@ -1,0 +1,733 @@
+{
+  "danhSachNhanVien": [
+    {
+      "hoVaTen": "3282-Nguyễn Minh Thảo",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "34767-Bùi Đức Chí",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "35648-Trần Anh Nam",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "37806-Nguyễn Văn Hiền Nam",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "38143-Lý Tường Khang",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "38144-Phan Thanh Tuấn",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "102934-Vũ Đình Phúc",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "107863-Trần Duy Tân",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "105971-Nguyễn Minh Nhựt",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "109484-Nguyễn Minh Thông",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "110700-Bùi Minh Phúc",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "111316-Huỳnh Minh Long",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "111964-Huỳnh Gia Lâm",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "111411-Lê Minh Luân",
+      "nhom": "Kho Ecom"
+    },
+    {
+      "hoVaTen": "111730-Huỳnh Thị Thúy An",
+      "nhom": "Kho Ecom"
+    },
+    {
+      "hoVaTen": "112078-Huỳnh Tấn Đạt",
+      "nhom": "Kho Ecom"
+    },
+    {
+      "hoVaTen": "112187-Huỳnh Thị Ngọc Như",
+      "nhom": "Kho Ecom"
+    },
+    {
+      "hoVaTen": "6731-Đặng Hồng Quân",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "4373-Ngô Tiến Đạt",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "32937-Huỳnh Thế Phong",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "22788-Lê Minh Quang",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "29006-Nguyễn Thành Tài",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "12897-Vũ Thành Vương",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "104582-Nguyễn Minh Trọng",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "105871-Nguyễn Tấn Tài",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "111839-Nguyễn Thành Trung",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "109807-Cao Gia Phong",
+      "nhom": "Kho Chờ Xử Lý"
+    },
+    {
+      "hoVaTen": "112252-Lý Thị Hoài Hân",
+      "nhom": "Kho Bán Mới"
+    },
+    {
+      "hoVaTen": "112511-Nguyễn Thanh Tới",
+      "nhom": "Kho Chờ Xử Lý"
+    },
+    {
+      "hoVaTen": "112572-Dương Gia Huy",
+      "nhom": "Kho Chờ Xử Lý"
+    },
+    {
+      "hoVaTen": "112576-Nguyễn Vĩnh Nghiệp",
+      "nhom": "Kho Chờ Xử Lý"
+    },
+    {
+      "hoVaTen": "112341-Nguyễn Khánh Kỳ",
+      "nhom": "Quản lý"
+    },
+    {
+      "hoVaTen": "112862-Nguyễn Tuấn Quang",
+      "nhom": "Quản lý"
+    },
+    {
+      "hoVaTen": "113029-Huỳnh Minh Vũ",
+      "nhom": "GNNB"
+    },
+    {
+      "hoVaTen": "113209-Võ Nguyễn Hoài Thương",
+      "nhom": "Kho Ecom"
+    },
+    {
+      "hoVaTen": "113125-Trần Kim Huê",
+      "nhom": "Kho Chờ Xử Lý"
+    },
+    {
+      "hoVaTen": "113128-Nguyễn Hoài Quế Trân",
+      "nhom": "Kho Chờ Xử Lý"
+    },
+    {
+      "hoVaTen": "113207-Lê Quốc Huy",
+      "nhom": "Kho Chờ Xử Lý"
+    }
+  ],
+  "lichSuDatCom": [
+    {
+      "ngayDat": "2026-11-14",
+      "chiTiet": [
+        {
+          "boPhan": "Kho Bán Mới (Đi làm: 13)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 13,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 13
+        },
+        {
+          "boPhan": "Kho Ecom (Đi làm: 5)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 5,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 5
+        },
+        {
+          "boPhan": "Kho Chờ Xử Lý (Đi làm: 7)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 7,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 7
+        },
+        {
+          "boPhan": "Quản lý (Đi làm: 2)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 2,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 2
+        },
+        {
+          "boPhan": "👤 Khách / Đối tác (Tự điền)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 0,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 0
+        }
+      ],
+      "tongSoLuong": 27,
+      "thoiGianLuu": "11:38:35 14/11/2026"
+    },
+    {
+      "ngayDat": "2026-11-17",
+      "chiTiet": [
+        {
+          "boPhan": "Kho Bán Mới (Đi làm: 14)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 11,
+          "truaChay": 3,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 14
+        },
+        {
+          "boPhan": "Kho Ecom (Đi làm: 5)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 2,
+          "truaChay": 3,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 5
+        },
+        {
+          "boPhan": "Kho Chờ Xử Lý (Đi làm: 7)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 5,
+          "truaChay": 2,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 7
+        },
+        {
+          "boPhan": "Quản lý (Đi làm: 2)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 2,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 2
+        },
+        {
+          "boPhan": "👤 Khách / Đối tác (Tự điền)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 0,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 0
+        }
+      ],
+      "tongSoLuong": 28,
+      "thoiGianLuu": "13:21:11 17/11/2026"
+    },
+    {
+      "ngayDat": "2026-11-18",
+      "chiTiet": [
+        {
+          "boPhan": "Kho Bán Mới (Đi làm: 13)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 13,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 13
+        },
+        {
+          "boPhan": "Kho Ecom (Đi làm: 5)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 5,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 5
+        },
+        {
+          "boPhan": "Kho Chờ Xử Lý (Đi làm: 7)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 7,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 7
+        },
+        {
+          "boPhan": "Quản lý (Đi làm: 2)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 2,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 2
+        },
+        {
+          "boPhan": "👤 Khách / Đối tác (Tự điền)",
+          "sang": 0,
+          "sangChay": 0,
+          "trua": 0,
+          "truaChay": 0,
+          "toi": 0,
+          "toiChay": 0,
+          "tongRow": 0
+        }
+      ],
+      "tongSoLuong": 27,
+      "thoiGianLuu": "10:14:56 18/11/2026"
+    }
+  ],
+  "vanDonGiao": [],
+  "thongBaoVanChuyen": [],
+  "dinhDanhQuet": [],
+  "bienBanHuHong": [],
+  "keHoachNhap": [
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "ĐTDĐ",
+      "loaiYc": "Nhập D2C",
+      "ncc": "BYPHONE",
+      "soDinhDanh": "",
+      "slKeHoach": 250,
+      "slThucNhan": 0,
+      "ghiChu": "",
+      "nguon": "NhanPT36",
+      "stt": 1
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "Apple",
+      "loaiYc": "Nhập",
+      "ncc": "DGW",
+      "soDinhDanh": "",
+      "slKeHoach": 10,
+      "slThucNhan": 0,
+      "ghiChu": "",
+      "nguon": "TrangLVH4",
+      "stt": 2
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "TBGD",
+      "loaiYc": "Nhập D2C",
+      "ncc": "ONE CLICK",
+      "soDinhDanh": "",
+      "slKeHoach": 10,
+      "slThucNhan": 0,
+      "ghiChu": "POMRP_357245",
+      "nguon": "HaVT53",
+      "stt": 3
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "TBGD",
+      "loaiYc": "Nhập D2C",
+      "ncc": "ORROHOME",
+      "soDinhDanh": "",
+      "slKeHoach": 50,
+      "slThucNhan": 0,
+      "ghiChu": " POMRP_356485",
+      "nguon": "HaVT53",
+      "stt": 4
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "Apple",
+      "loaiYc": "Nhập",
+      "ncc": "PHTD",
+      "soDinhDanh": "",
+      "slKeHoach": 20,
+      "slThucNhan": 0,
+      "ghiChu": "",
+      "nguon": "TrangLVH4",
+      "stt": 5
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "Apple",
+      "loaiYc": "Nhập",
+      "ncc": "Schenker + KWE + GHTK",
+      "soDinhDanh": "",
+      "slKeHoach": 4430,
+      "slThucNhan": 0,
+      "ghiChu": "",
+      "nguon": "TrangLVH4",
+      "stt": 6
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "Apple",
+      "loaiYc": "Nhập",
+      "ncc": "Synnex",
+      "soDinhDanh": "",
+      "slKeHoach": 5,
+      "slThucNhan": 0,
+      "ghiChu": "",
+      "nguon": "TrangLVH4",
+      "stt": 7
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "TBGD",
+      "loaiYc": "Nhập",
+      "ncc": "Thủy Kim",
+      "soDinhDanh": "1",
+      "slKeHoach": 2000,
+      "slThucNhan": 2000,
+      "ghiChu": "Đang chờ tạo mã ạ",
+      "nguon": "NgocDH2",
+      "stt": 8
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "Apple",
+      "loaiYc": "Nhập",
+      "ncc": "Viettel",
+      "soDinhDanh": "",
+      "slKeHoach": 10,
+      "slThucNhan": 0,
+      "ghiChu": "",
+      "nguon": "TrangLVH4",
+      "stt": 9
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "ĐTDĐ",
+      "loaiYc": "Nhập",
+      "ncc": "Viettel",
+      "soDinhDanh": "",
+      "slKeHoach": 3896,
+      "slThucNhan": 0,
+      "ghiChu": "POMRP_357504",
+      "nguon": "TriNQM",
+      "stt": 10
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "MT",
+      "loaiYc": "Nhập D2C",
+      "ncc": "Viễn Sơn",
+      "soDinhDanh": "",
+      "slKeHoach": 50,
+      "slThucNhan": 0,
+      "ghiChu": "POMRP_357529",
+      "nguon": "TrangHT36",
+      "stt": 11
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "ĐTDĐ",
+      "loaiYc": "Nhập",
+      "ncc": "Vĩnh Khang, DDTM",
+      "soDinhDanh": "",
+      "slKeHoach": 200,
+      "slThucNhan": 0,
+      "ghiChu": "",
+      "nguon": "HuyHB",
+      "stt": 12
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "MT",
+      "loaiYc": "Nhập D2C",
+      "ncc": "VSC",
+      "soDinhDanh": "",
+      "slKeHoach": 5,
+      "slThucNhan": 0,
+      "ghiChu": "POMRP_357540",
+      "nguon": "HuongHQ3",
+      "stt": 13
+    },
+    {
+      "ngay": "18-11-2026",
+      "kho": "HO-HCM",
+      "nganhHang": "MT",
+      "loaiYc": "Nhập D2C",
+      "ncc": "VSC",
+      "soDinhDanh": "",
+      "slKeHoach": 25,
+      "slThucNhan": 0,
+      "ghiChu": "POMRP_357509",
+      "nguon": "HuongHQ3",
+      "stt": 14
+    }
+  ],
+  "trackingList": [
+    {
+      "id": 1794631010264,
+      "code": "2",
+      "status": "Đã nhận (Chờ khớp KH)",
+      "ncc": "-- Chưa chọn NCC --",
+      "timeNhan": "11:36:50 14-11-2026",
+      "timeNhap": "-- Chưa nhập --"
+    },
+    {
+      "id": 1794631003908,
+      "code": "1",
+      "status": "✔ Khớp kế hoạch (Đã nhập)",
+      "ncc": "Thủy Kim",
+      "timeNhan": "11:36:43 14-11-2026",
+      "timeNhap": "10:17:34 18-11-2026"
+    }
+  ],
+  "vanDonDiGiao": [
+    {
+      "id": 1794971773942,
+      "ma": "fe123123213",
+      "nvc": "247",
+      "thoiGian": "10:16:13 18-11-2026",
+      "trangThai": "Đang giao"
+    },
+    {
+      "id": 1794971771189,
+      "ma": "fs1212121",
+      "nvc": "Nhất Tín",
+      "thoiGian": "10:16:11 18-11-2026",
+      "trangThai": "Đang giao"
+    },
+    {
+      "id": 1794904979657,
+      "ma": "fs1111",
+      "nvc": "Nhất Tín",
+      "thoiGian": "15:42:59 17-11-2026",
+      "trangThai": "Đang giao"
+    },
+    {
+      "id": 1794904908320,
+      "ma": "fs34455",
+      "nvc": "Nhất Tín",
+      "thoiGian": "15:41:48 17-11-2026",
+      "trangThai": "Đang giao"
+    },
+    {
+      "id": 1794628310388,
+      "ma": "222",
+      "nvc": "GNNB",
+      "thoiGian": "10:51:50 14-11-2026",
+      "trangThai": "Đang giao"
+    },
+    {
+      "id": 1794628285827,
+      "ma": "2323233",
+      "nvc": "GNNB",
+      "thoiGian": "10:51:25 14-11-2026",
+      "trangThai": "Đang giao"
+    }
+  ],
+  "vanDonThuHoi": [
+    {
+      "id": 1794971775988,
+      "ma": "fs1212121",
+      "nvc": "Nhất Tín",
+      "thoiGian": "10:16:15 18-11-2026"
+    },
+    {
+      "id": 1794971775540,
+      "ma": "fe123123213",
+      "nvc": "247",
+      "thoiGian": "10:16:15 18-11-2026"
+    },
+    {
+      "id": 1794905198282,
+      "ma": "fs1111",
+      "nvc": "Nhất Tín",
+      "thoiGian": "15:46:38 17-11-2026"
+    },
+    {
+      "id": 1794904912239,
+      "ma": "fs34455",
+      "nvc": "Nhất Tín",
+      "thoiGian": "15:41:52 17-11-2026"
+    },
+    {
+      "id": 1794896475918,
+      "ma": "2323233",
+      "nvc": "GNNB",
+      "thoiGian": "13:21:15 17-11-2026"
+    },
+    {
+      "id": 1794631030574,
+      "ma": "222",
+      "nvc": "GNNB",
+      "thoiGian": "11:37:10 14-11-2026"
+    }
+  ],
+  "nhaVuyenChuyen": [
+    "247",
+    "Nhất Tín",
+    "Viettel",
+    "GNNB"
+  ],
+  "danhSachTraNVC": [
+    {
+      "id": 1794971755228.61,
+      "ma": "3123313",
+      "nvc": "247",
+      "thoiGian": "10:15:55 18-11-2026",
+      "trangThai": "Đã trả NVC"
+    },
+    {
+      "id": 1794971760406.1252,
+      "ma": "55345345",
+      "nvc": "Nhất Tín",
+      "thoiGian": "10:16:00 18-11-2026",
+      "trangThai": "Đã trả NVC"
+    },
+    {
+      "id": 1794904949103.5483,
+      "ma": "12312312",
+      "nvc": "247",
+      "thoiGian": "15:42:29 17-11-2026",
+      "trangThai": "Đã trả NVC"
+    },
+    {
+      "id": 1794628216902.01,
+      "ma": "12313",
+      "nvc": "247",
+      "thoiGian": "10:50:16 14-11-2026",
+      "trangThai": "Đã trả NVC"
+    }
+  ],
+  "nhaVuyenChuyenTra": [
+    "247",
+    "Nhất Tín",
+    "Viettel"
+  ],
+  "chamCongList": [
+    {
+      "id": 1794896495846,
+      "ngay": "2026-11-17",
+      "nhaCungUng": "Topaz",
+      "donGia": 60000,
+      "soLuongNS": 9,
+      "soGio": 8,
+      "thanhTien": 4320000
+    }
+  ],
+  "nhaCungUngList": [
+    {
+      "ten": "Hoa Anh Đào",
+      "donGia": 42500
+    },
+    {
+      "ten": "Flex",
+      "donGia": 43000
+    },
+    {
+      "ten": "Topaz",
+      "donGia": 60000
+    }
+  ],
+  "vattu": [
+    {
+      "ngay": "2026-11-14",
+      "danhSach": [
+        {
+          "tenVatTu": "Băng keo đỏ",
+          "nhap": 1000,
+          "xuat": 0,
+          "ton": 1000
+        },
+        {
+          "tenVatTu": "Thùng carton",
+          "nhap": 0,
+          "xuat": 0,
+          "ton": 0
+        },
+        {
+          "tenVatTu": "Tem bạc FPT",
+          "nhap": 0,
+          "xuat": 0,
+          "ton": 0
+        }
+      ],
+      "updatedAt": "2026-11-14T03:41:58.975Z"
+    },
+    {
+      "ngay": "2026-11-17",
+      "danhSach": [
+        {
+          "tenVatTu": "Băng keo đỏ",
+          "nhap": 0,
+          "xuat": 500,
+          "ton": 500
+        },
+        {
+          "tenVatTu": "Thùng carton",
+          "nhap": 0,
+          "xuat": 0,
+          "ton": 0
+        },
+        {
+          "tenVatTu": "Tem bạc FPT",
+          "nhap": 0,
+          "xuat": 0,
+          "ton": 0
+        }
+      ],
+      "updatedAt": "2026-11-17T08:43:49.150Z"
+    }
+  ]
+}
