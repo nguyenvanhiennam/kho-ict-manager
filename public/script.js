@@ -239,18 +239,21 @@ function renderMenuTableDynamic(nhanVienDiLamList) {
         } else {
             html += "<td style='font-weight:bold; text-align:left; padding: 10px;'>" + nhom + " (Đi làm: <span style='color:#16a34a;'>" + sl + "</span>)</td>";
         }
-        html += "<td><input type='number' class='input-sang' value='" + sang + "' oninput='tinhTongRow(this)'></td>";
-        html += "<td><input type='number' class='input-chay-sang' value='" + chaySang + "' oninput='tinhTongRow(this)'></td>";
+        html += "<td><input type='number' min='0' class='input-sang' value='" + sang + "' oninput='tinhTongRow(this)'></td>";
+        html += "<td><input type='number' min='0' class='input-chay-sang' value='" + chaySang + "' oninput='tinhTongRow(this)'></td>";
+
+        // Ô TRƯA: cho sửa tự do, chỉ cập nhật cột tổng
+        html += "<td><input type='number' min='0' class='input-trua' value='" + trua + "' oninput='tinhTongRow(this)'></td>";
 
         if (nhom === "Khách") {
-            html += "<td><input type='number' class='input-trua' value='" + trua + "' oninput='tinhTongRow(this)'></td>";
-            html += "<td><input type='number' class='input-chay-trua' value='" + chayTrua + "' oninput='tinhTongRow(this)'></td>";
+            html += "<td><input type='number' min='0' class='input-chay-trua' value='" + chayTrua + "' oninput='tinhTongRow(this)'></td>";
         } else {
-            html += "<td><input type='number' class='input-trua' value='" + trua + "' oninput='tinhLaiTongSo(this, " + sl + ")'></td>";
-            html += "<td><input type='number' class='input-chay-trua' value='" + chayTrua + "' oninput='tinhLaiTongSo(this, " + sl + ")'></td>";
+            // Khi nhập suất chay, ô TRƯA tự giảm tương ứng (sau đó vẫn sửa tay được)
+            html += "<td><input type='number' min='0' class='input-chay-trua' value='" + chayTrua + "' oninput='tinhLaiTongSo(this, " + sl + ")'></td>";
         }
-        html += "<td><input type='number' class='input-toi' value='" + toi + "' oninput='tinhTongRow(this)'></td>";
-        html += "<td><input type='number' class='input-chay-toi' value='" + chayToi + "' oninput='tinhTongRow(this)'></td>";
+
+        html += "<td><input type='number' min='0' class='input-toi' value='" + toi + "' oninput='tinhTongRow(this)'></td>";
+        html += "<td><input type='number' min='0' class='input-chay-toi' value='" + chayToi + "' oninput='tinhTongRow(this)'></td>";
         html += "<td style='font-weight:bold; color: #2563eb;' class='col-tong'>" + tongSo + "</td>";
         html += "</tr>";
     });
