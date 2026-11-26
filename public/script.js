@@ -966,16 +966,25 @@ function chupManHinhBaoCao() {
         return;
     }
 
-    // Bật hiển thị phần header báo cáo nhập trước khi tính kích thước & chụp
-    var header = document.getElementById('baoCaoHeader') || area.querySelector('.bao-cao-header');
-    if (header) {
-        header.style.display = 'block';
-        header.style.visibility = 'visible';
+    // Đảm bảo tiêu đề & dòng tổng kết luôn hiển thị
+    var titleEl = document.getElementById('popupTitle');
+    var tongKetEl = document.getElementById('popupTongKetTop');
+    if (titleEl) {
+        titleEl.style.display = 'block';
+        titleEl.style.visibility = 'visible';
+    }
+    if (tongKetEl) {
+        tongKetEl.style.display = 'block';
+        tongKetEl.style.visibility = 'visible';
     }
 
     if (typeof hienThiLoading === 'function') {
         hienThiLoading(true);
     }
+
+    // Cuộn lên đầu trước khi đo chiều cao để không bị lệch/mất header
+    var prevScrollTop = area.scrollTop;
+    area.scrollTop = 0;
 
     var fullHeight = Math.max(area.scrollHeight, area.offsetHeight);
     var fullWidth = Math.max(area.scrollWidth, area.offsetWidth);
@@ -995,43 +1004,28 @@ function chupManHinhBaoCao() {
             var clonedArea = clonedDoc.getElementById('popupContentArea');
             if (!clonedArea) return;
 
-            // Đảm bảo header trên bản clone cũng được bật hiển thị
-            var clonedHeader = clonedDoc.getElementById('baoCaoHeader') || clonedArea.querySelector('.bao-cao-header');
-            if (clonedHeader) {
-                clonedHeader.style.setProperty('display', 'block', 'important');
-                clonedHeader.style.setProperty('visibility', 'visible', 'important');
-            }
-
+            clonedArea.scrollTop = 0;
             clonedArea.classList.add('capture-mode');
-            if (clonedArea.parentElement) {
-                clonedArea.parentElement.classList.add('capture-mode');
+
+            var clonedTitle = clonedDoc.getElementById('popupTitle');
+            var clonedTongKet = clonedDoc.getElementById('popupTongKetTop');
+            if (clonedTitle) {
+                clonedTitle.style.setProperty('display', 'block', 'important');
+                clonedTitle.style.setProperty('visibility', 'visible', 'important');
+            }
+            if (clonedTongKet) {
+                clonedTongKet.style.setProperty('display', 'block', 'important');
+                clonedTongKet.style.setProperty('visibility', 'visible', 'important');
             }
 
-            // Ẩn đúng 3 nút Copy Text / Copy Ảnh / Đóng (kể cả khi nằm ngoài #popupContentArea)
-            var nhanNutCanAn = ['copy text', 'copy ảnh', 'copy anh', 'đóng', 'dong'];
-            var nutVaThanhAn = new Set();
-
-            clonedDoc.querySelectorAll('button, [role="button"], .btn').forEach(function (el) {
-                var text = (el.innerText || el.textContent || '').trim().toLowerCase();
-                if (nhanNutCanAn.indexOf(text) !== -1) {
-                    nutVaThanhAn.add(el);
-
-                    // Nếu nút nằm gọn trong một thanh footer/nhóm nút nhỏ thì ẩn luôn thanh đó để không chừa khoảng trống
-                    var parent = el.parentElement;
-                    if (parent && parent !== clonedDoc.body && parent.querySelectorAll('button, [role="button"], .btn').length <= 4) {
-                        var rect = parent.getBoundingClientRect ? parent.getBoundingClientRect() : null;
-                        if (!rect || rect.height < 120) {
-                            nutVaThanhAn.add(parent);
-                        }
-                    }
-                }
-            });
-
-            nutVaThanhAn.forEach(function (el) {
-                el.style.setProperty('display', 'none', 'important');
-            });
+            // Ẩn thanh chứa 3 nút ở cuối #popupContentArea
+            var buttons = clonedArea.querySelectorAll('button');
+            if (buttons.length > 0 && buttons[0].parentElement) {
+                buttons[0].parentElement.style.setProperty('display', 'none', 'important');
+            }
         }
     }).then(function (canvas) {
+        area.scrollTop = prevScrollTop;
         canvas.toBlob(function (blob) {
             if (typeof hienThiLoading === 'function') {
                 hienThiLoading(false);
@@ -1049,6 +1043,7 @@ function chupManHinhBaoCao() {
             }
         }, 'image/png');
     }).catch(function (err) {
+        area.scrollTop = prevScrollTop;
         if (typeof hienThiLoading === 'function') {
             hienThiLoading(false);
         }
