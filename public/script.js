@@ -960,31 +960,72 @@ function copyBaoCaoClipboard() {
     });
 }
 
-// Hàm này được nút "Copy Ảnh" trong popup báo cáo gọi (bản gốc chưa có, đã bổ sung)
 function chupManHinhBaoCao() {
     var area = document.getElementById('popupContentArea');
     if (!area || typeof html2canvas === 'undefined') {
         alert("⚠️ Thư viện html2canvas chưa được tải!");
         return;
     }
-    hienThiLoading(true);
-    html2canvas(area, { scale: 2, backgroundColor: '#ffffff', height: area.scrollHeight, windowHeight: area.scrollHeight }).then(function (canvas) {
+
+    if (typeof hienThiLoading === 'function') {
+        hienThiLoading(true);
+    }
+
+    var fullHeight = Math.max(area.scrollHeight, area.offsetHeight);
+    var fullWidth = Math.max(area.scrollWidth, area.offsetWidth);
+
+    html2canvas(area, {
+        scale: 2,
+        backgroundColor: '#ffffff',
+        useCORS: true,
+        logging: false,
+        width: fullWidth,
+        height: fullHeight,
+        windowWidth: Math.max(document.documentElement.clientWidth, fullWidth),
+        windowHeight: fullHeight,
+        scrollX: 0,
+        scrollY: 0,
+        onclone: function (clonedDoc) {
+            var clonedArea = clonedDoc.getElementById('popupContentArea');
+            if (!clonedArea) return;
+
+            // Gắn class CSS cho vùng chụp (và thẻ cha nếu nút nằm ngoài #popupContentArea)
+            clonedArea.classList.add('capture-mode');
+            if (clonedArea.parentElement) {
+                clonedArea.parentElement.classList.add('capture-mode');
+            }
+        }
+    }).then(function (canvas) {
         canvas.toBlob(function (blob) {
-            hienThiLoading(false);
+            if (typeof hienThiLoading === 'function') {
+                hienThiLoading(false);
+            }
             if (!blob) return;
-            navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(function () {
-                alert("📸 Đã sao chép ảnh báo cáo! Hãy nhấn Ctrl + V để dán vào Zalo / Email.");
-            }).catch(function () {
-                var link = document.createElement('a');
-                link.download = 'BaoCaoNhap.png';
-                link.href = canvas.toDataURL();
-                link.click();
-            });
-        });
+
+            if (navigator.clipboard && window.ClipboardItem) {
+                navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(function () {
+                    alert("📸 Đã sao chép ảnh báo cáo! Hãy nhấn Ctrl + V để dán vào Zalo / Email.");
+                }).catch(function () {
+                    taiAnhXuong(canvas);
+                });
+            } else {
+                taiAnhXuong(canvas);
+            }
+        }, 'image/png');
     }).catch(function (err) {
-        hienThiLoading(false);
-        console.error(err);
+        if (typeof hienThiLoading === 'function') {
+            hienThiLoading(false);
+        }
+        console.error("Lỗi chụp màn hình báo cáo:", err);
+        alert("❌ Không thể chụp ảnh báo cáo. Vui lòng thử lại!");
     });
+}
+
+function taiAnhXuong(canvas) {
+    var link = document.createElement('a');
+    link.download = 'BaoCaoNhap.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
 }
 
 // ==========================================
