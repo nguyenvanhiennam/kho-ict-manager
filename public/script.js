@@ -989,11 +989,34 @@ function chupManHinhBaoCao() {
             var clonedArea = clonedDoc.getElementById('popupContentArea');
             if (!clonedArea) return;
 
-            // Gắn class CSS cho vùng chụp (và thẻ cha nếu nút nằm ngoài #popupContentArea)
             clonedArea.classList.add('capture-mode');
             if (clonedArea.parentElement) {
                 clonedArea.parentElement.classList.add('capture-mode');
             }
+
+            // Ẩn đúng 3 nút Copy Text / Copy Ảnh / Đóng (kể cả khi nằm ngoài #popupContentArea)
+            var nhanNutCanAn = ['copy text', 'copy ảnh', 'copy anh', 'đóng', 'dong'];
+            var nutVaThanhAn = new Set();
+
+            clonedDoc.querySelectorAll('button, [role="button"], .btn').forEach(function (el) {
+                var text = (el.innerText || el.textContent || '').trim().toLowerCase();
+                if (nhanNutCanAn.indexOf(text) !== -1) {
+                    nutVaThanhAn.add(el);
+
+                    // Nếu nút nằm gọn trong một thanh footer/nhóm nút nhỏ thì ẩn luôn thanh đó để không chừa khoảng trống
+                    var parent = el.parentElement;
+                    if (parent && parent !== clonedDoc.body && parent.querySelectorAll('button, [role="button"], .btn').length <= 4) {
+                        var rect = parent.getBoundingClientRect ? parent.getBoundingClientRect() : null;
+                        if (!rect || rect.height < 120) {
+                            nutVaThanhAn.add(parent);
+                        }
+                    }
+                }
+            });
+
+            nutVaThanhAn.forEach(function (el) {
+                el.style.setProperty('display', 'none', 'important');
+            });
         }
     }).then(function (canvas) {
         canvas.toBlob(function (blob) {
@@ -1019,6 +1042,13 @@ function chupManHinhBaoCao() {
         console.error("Lỗi chụp màn hình báo cáo:", err);
         alert("❌ Không thể chụp ảnh báo cáo. Vui lòng thử lại!");
     });
+}
+
+function taiAnhXuong(canvas) {
+    var link = document.createElement('a');
+    link.download = 'BaoCaoNhap.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
 }
 
 function taiAnhXuong(canvas) {
