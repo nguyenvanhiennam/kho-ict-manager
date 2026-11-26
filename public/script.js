@@ -959,12 +959,18 @@ function copyBaoCaoClipboard() {
         alert("Không thể sao chép (trình duyệt yêu cầu HTTPS).");
     });
 }
-
 function chupManHinhBaoCao() {
     var area = document.getElementById('popupContentArea');
     if (!area || typeof html2canvas === 'undefined') {
         alert("⚠️ Thư viện html2canvas chưa được tải!");
         return;
+    }
+
+    // Bật hiển thị phần header báo cáo nhập trước khi tính kích thước & chụp
+    var header = document.getElementById('baoCaoHeader') || area.querySelector('.bao-cao-header');
+    if (header) {
+        header.style.display = 'block';
+        header.style.visibility = 'visible';
     }
 
     if (typeof hienThiLoading === 'function') {
@@ -988,6 +994,13 @@ function chupManHinhBaoCao() {
         onclone: function (clonedDoc) {
             var clonedArea = clonedDoc.getElementById('popupContentArea');
             if (!clonedArea) return;
+
+            // Đảm bảo header trên bản clone cũng được bật hiển thị
+            var clonedHeader = clonedDoc.getElementById('baoCaoHeader') || clonedArea.querySelector('.bao-cao-header');
+            if (clonedHeader) {
+                clonedHeader.style.setProperty('display', 'block', 'important');
+                clonedHeader.style.setProperty('visibility', 'visible', 'important');
+            }
 
             clonedArea.classList.add('capture-mode');
             if (clonedArea.parentElement) {
@@ -1050,14 +1063,6 @@ function taiAnhXuong(canvas) {
     link.href = canvas.toDataURL('image/png');
     link.click();
 }
-
-function taiAnhXuong(canvas) {
-    var link = document.createElement('a');
-    link.download = 'BaoCaoNhap.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
-}
-
 // ==========================================
 // 7. ĐIỀU HƯỚNG TAB CON KẾ HOẠCH
 // ==========================================
