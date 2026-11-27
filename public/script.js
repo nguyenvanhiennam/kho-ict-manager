@@ -959,97 +959,211 @@ function copyBaoCaoClipboard() {
         alert("Không thể sao chép (trình duyệt yêu cầu HTTPS).");
     });
 }
-function chupManHinhBaoCao() {
-    var area = document.getElementById('popupContentArea');
-    if (!area || typeof html2canvas === 'undefined') {
+// ==========================================
+// CHỤP ẢNH BÁO CÁO NHẬP - TỰ TÁCH ẢNH NẾU > 30 DÒNG
+// ==========================================
+var SO_DONG_MOI_ANH_BAO_CAO = 30;
+
+async function chupManHinhBaoCao() {
+    var tbodyGoc = document.getElementById('popupTableBody');
+    if (!tbodyGoc || typeof html2canvas === 'undefined') {
         alert("⚠️ Thư viện html2canvas chưa được tải!");
         return;
     }
-
-    // Đảm bảo tiêu đề & dòng tổng kết luôn hiển thị
+    var bangGoc = tbodyGoc.closest('table');
     var titleEl = document.getElementById('popupTitle');
     var tongKetEl = document.getElementById('popupTongKetTop');
-    if (titleEl) {
-        titleEl.style.display = 'block';
-        titleEl.style.visibility = 'visible';
-    }
-    if (tongKetEl) {
-        tongKetEl.style.display = 'block';
-        tongKetEl.style.visibility = 'visible';
+    var tatCaDong = Array.prototype.slice.call(tbodyGoc.rows);
+    if (!bangGoc || tatCaDong.length === 0) {
+        alert("⚠️ Chưa có dữ liệu báo cáo để chụp!");
+        return;
     }
 
-    if (typeof hienThiLoading === 'function') {
-        hienThiLoading(true);
+    // Chia dòng thành từng nhóm
+    var nhomDong = [];
+    for (var i = 0; i < tatCaDong.length; i += SO_DONG_MOI_ANH_BAO_CAO) {
+        nhomDong.push(tatCaDong.slice(i, i + SO_DONG_MOI_ANH_BAO_CAO));
     }
+    var tongPhan = nhomDong.length;
+    var doRongBang = Math.max(bangGoc.offsetWidth, 900);
 
-    // Cuộn lên đầu trước khi đo chiều cao để không bị lệch/mất header
-    var prevScrollTop = area.scrollTop;
-    area.scrollTop = 0;
+    // Vùng dựng ảnh nằm ngoài màn hình
+    var khungAn = document.createElement('div');
+    khungAn.style.cssText = 'position:fixed; left:-20000px; top:0; background:#fff; z-index:-1;';
+    document.body.appendChild(khungAn);
 
-    var fullHeight = Math.max(area.scrollHeight, area.offsetHeight);
-    var fullWidth = Math.max(area.scrollWidth, area.offsetWidth);
+    if (typeof hienThiLoading === 'function') hienThiLoading(true);
+    var danhSachCanvas = [];
 
-    html2canvas(area, {
-        scale: 2,
-        backgroundColor: '#ffffff',
-        useCORS: true,
-        logging: false,
-        width: fullWidth,
-        height: fullHeight,
-        windowWidth: Math.max(document.documentElement.clientWidth, fullWidth),
-        windowHeight: fullHeight,
-        scrollX: 0,
-        scrollY: 0,
-        onclone: function (clonedDoc) {
-            var clonedArea = clonedDoc.getElementById('popupContentArea');
-            if (!clonedArea) return;
+    try {
+        for (var p = 0; p < tongPhan; p++) {
+            var trang = document.createElement('div');
+            trang.style.cssText = 'background:#fff; padding:20px; width:' + doRongBang + 'px; box-sizing:content-box;';
 
-            clonedArea.scrollTop = 0;
-            clonedArea.classList.add('capture-mode');
-
-            var clonedTitle = clonedDoc.getElementById('popupTitle');
-            var clonedTongKet = clonedDoc.getElementById('popupTongKetTop');
-            if (clonedTitle) {
-                clonedTitle.style.setProperty('display', 'block', 'important');
-                clonedTitle.style.setProperty('visibility', 'visible', 'important');
+            // Tiêu đề
+            if (titleEl) {
+                var t = titleEl.cloneNode(true);
+                t.removeAttribute('id');
+                t.style.display = 'block';
+                t.style.visibility = 'visible';
+                if (tongPhan > 1) t.innerText = titleEl.innerText + "  (Phần " + (p + 1) + "/" + tongPhan + ")";
+                trang.appendChild(t);
             }
-            if (clonedTongKet) {
-                clonedTongKet.style.setProperty('display', 'block', 'important');
-                clonedTongKet.style.setProperty('visibility', 'visible', 'important');
+            // Dòng tổng kết
+            if (tongKetEl) {
+                var k = tongKetEl.cloneNode(true);
+                k.removeAttribute('id');
+                k.style.display = 'block';
+                k.style.visibility = 'visible';
+                trang.appendChild(k);
             }
+            // Bảng chỉ giữ các dòng của nhóm này
+            var bang = bangGoc.cloneNode(true);
+            var tbody = bang.querySelector('tbody');
+            if (tbody) tbody.removeAttribute('id');
+            var dongCanGiu = nhomDong[p].map(function (r) { return r.innerHTML; });
+            if (tbody) {
+                tbody.innerHTML = '';
+                nhomDong[p].forEach(function (r) { tbody.appendChild(r.cloneNode(true)); });
+            }
+            bang.style.width = doRongBang + 'px';
+            bang.style.maxWidth = 'none';
+            trang.appendChild(bang);
 
-            // Ẩn thanh chứa 3 nút ở cuối #popupContentArea
-            var buttons = clonedArea.querySelectorAll('button');
-            if (buttons.length > 0 && buttons[0].parentElement) {
-                buttons[0].parentElement.style.setProperty('display', 'none', 'important');
-            }
+            khungAn.appendChild(trang);
+
+            var cao = trang.offsetHeight;
+            var scale = Math.max(0.5, Math.min(2, 14000 / cao, 14000 / trang.offsetWidth));
+            var canvas = await html2canvas(trang, {
+                scale: scale,
+                backgroundColor: '#ffffff',
+                useCORS: true,
+                logging: false,
+                scrollX: 0,
+                scrollY: 0
+            });
+            danhSachCanvas.push(canvas);
+            khungAn.removeChild(trang);
         }
-    }).then(function (canvas) {
-        area.scrollTop = prevScrollTop;
-        canvas.toBlob(function (blob) {
-            if (typeof hienThiLoading === 'function') {
-                hienThiLoading(false);
-            }
-            if (!blob) return;
-
-            if (navigator.clipboard && window.ClipboardItem) {
-                navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(function () {
-                    alert("📸 Đã sao chép ảnh báo cáo! Hãy nhấn Ctrl + V để dán vào Zalo / Email.");
-                }).catch(function () {
-                    taiAnhXuong(canvas);
-                });
-            } else {
-                taiAnhXuong(canvas);
-            }
-        }, 'image/png');
-    }).catch(function (err) {
-        area.scrollTop = prevScrollTop;
-        if (typeof hienThiLoading === 'function') {
-            hienThiLoading(false);
-        }
-        console.error("Lỗi chụp màn hình báo cáo:", err);
+    } catch (err) {
+        console.error("Lỗi chụp ảnh báo cáo:", err);
         alert("❌ Không thể chụp ảnh báo cáo. Vui lòng thử lại!");
+        document.body.removeChild(khungAn);
+        if (typeof hienThiLoading === 'function') hienThiLoading(false);
+        return;
+    }
+
+    document.body.removeChild(khungAn);
+    if (typeof hienThiLoading === 'function') hienThiLoading(false);
+
+    if (danhSachCanvas.length === 1) {
+        saoChepCanvasBaoCao(danhSachCanvas[0], 'BaoCaoNhap.png', true);
+    } else {
+        hienThiNhieuAnhBaoCao(danhSachCanvas);
+    }
+}
+
+// Sao chép 1 canvas vào clipboard, nếu không được thì tải xuống
+function saoChepCanvasBaoCao(canvas, tenFile, baoThanhCong) {
+    canvas.toBlob(function (blob) {
+        if (!blob) return;
+        if (navigator.clipboard && window.ClipboardItem) {
+            navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(function () {
+                if (baoThanhCong) alert("📸 Đã sao chép ảnh báo cáo! Hãy nhấn Ctrl + V để dán vào Zalo / Email.");
+                else alert("📸 Đã sao chép ảnh! Hãy nhấn Ctrl + V để dán.");
+            }).catch(function () {
+                taiCanvasBaoCao(canvas, tenFile);
+            });
+        } else {
+            taiCanvasBaoCao(canvas, tenFile);
+        }
+    }, 'image/png');
+}
+
+function taiCanvasBaoCao(canvas, tenFile) {
+    var link = document.createElement('a');
+    link.download = tenFile;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+}
+
+// Cửa sổ hiển thị nhiều ảnh, mỗi ảnh có nút Sao chép / Tải xuống
+function hienThiNhieuAnhBaoCao(danhSachCanvas) {
+    var cu = document.getElementById('modalNhieuAnhBaoCao');
+    if (cu) cu.remove();
+
+    var modal = document.createElement('div');
+    modal.id = 'modalNhieuAnhBaoCao';
+    modal.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.75); z-index:10000; display:flex; justify-content:center; align-items:center;';
+
+    var hop = document.createElement('div');
+    hop.style.cssText = 'background:#fff; border-radius:12px; width:900px; max-width:95%; max-height:92vh; overflow-y:auto; padding:20px;';
+
+    var dau = document.createElement('div');
+    dau.style.cssText = 'display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:10px; flex-wrap:wrap;';
+    dau.innerHTML = '<h3 style="margin:0; color:#1e293b;">📸 Báo cáo được tách thành ' + danhSachCanvas.length + ' ảnh</h3>';
+
+    var nhomNutDau = document.createElement('div');
+    nhomNutDau.style.cssText = 'display:flex; gap:8px;';
+    var nutTaiTatCa = document.createElement('button');
+    nutTaiTatCa.type = 'button';
+    nutTaiTatCa.innerText = '⬇️ Tải tất cả';
+    nutTaiTatCa.style.cssText = 'padding:8px 14px; background:#16a34a; color:#fff; border:none; border-radius:6px; font-weight:bold; cursor:pointer;';
+    nutTaiTatCa.onclick = function () {
+        danhSachCanvas.forEach(function (cv, idx) {
+            setTimeout(function () { taiCanvasBaoCao(cv, 'BaoCaoNhap_Phan' + (idx + 1) + '.png'); }, idx * 400);
+        });
+    };
+    var nutDong = document.createElement('button');
+    nutDong.type = 'button';
+    nutDong.innerText = 'Đóng';
+    nutDong.style.cssText = 'padding:8px 14px; background:#e2e8f0; border:none; border-radius:6px; font-weight:bold; cursor:pointer;';
+    nutDong.onclick = function () { modal.remove(); };
+    nhomNutDau.appendChild(nutTaiTatCa);
+    nhomNutDau.appendChild(nutDong);
+    dau.appendChild(nhomNutDau);
+    hop.appendChild(dau);
+
+    var ghiChu = document.createElement('div');
+    ghiChu.style.cssText = 'color:#64748b; font-size:13px; margin-bottom:14px;';
+    ghiChu.innerText = 'Bấm "Sao chép" ở từng ảnh rồi dán (Ctrl + V) vào Zalo / Email theo thứ tự Phần 1, 2, 3...';
+    hop.appendChild(ghiChu);
+
+    danhSachCanvas.forEach(function (cv, idx) {
+        var khung = document.createElement('div');
+        khung.style.cssText = 'border:1px solid #cbd5e1; border-radius:8px; padding:12px; margin-bottom:14px;';
+
+        var hang = document.createElement('div');
+        hang.style.cssText = 'display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;';
+        hang.innerHTML = '<b style="color:#1e293b;">Phần ' + (idx + 1) + '/' + danhSachCanvas.length + '</b>';
+
+        var nhomNut = document.createElement('div');
+        nhomNut.style.cssText = 'display:flex; gap:8px;';
+        var nutCopy = document.createElement('button');
+        nutCopy.type = 'button';
+        nutCopy.innerText = '📋 Sao chép';
+        nutCopy.style.cssText = 'padding:7px 14px; background:#2563eb; color:#fff; border:none; border-radius:6px; font-weight:bold; cursor:pointer;';
+        nutCopy.onclick = function () { saoChepCanvasBaoCao(cv, 'BaoCaoNhap_Phan' + (idx + 1) + '.png', false); };
+        var nutTai = document.createElement('button');
+        nutTai.type = 'button';
+        nutTai.innerText = '⬇️ Tải xuống';
+        nutTai.style.cssText = 'padding:7px 14px; background:#f1f5f9; border:1px solid #cbd5e1; border-radius:6px; font-weight:bold; cursor:pointer;';
+        nutTai.onclick = function () { taiCanvasBaoCao(cv, 'BaoCaoNhap_Phan' + (idx + 1) + '.png'); };
+        nhomNut.appendChild(nutCopy);
+        nhomNut.appendChild(nutTai);
+        hang.appendChild(nhomNut);
+        khung.appendChild(hang);
+
+        var anh = document.createElement('img');
+        anh.src = cv.toDataURL('image/png');
+        anh.style.cssText = 'width:100%; border:1px solid #e2e8f0;';
+        khung.appendChild(anh);
+
+        hop.appendChild(khung);
     });
+
+    modal.appendChild(hop);
+    document.body.appendChild(modal);
 }
 
 function taiAnhXuong(canvas) {
