@@ -451,6 +451,11 @@ async function deleteStaff(hoVaTen) {
     }
 }
 
+// Đơn giá từng buổi ăn (VNĐ)
+var DON_GIA_SANG = 22000;
+var DON_GIA_TRUA = 30000;
+var DON_GIA_TOI = 22000;
+
 async function loadBaoCaoKy() {
     var monthVal = parseInt(document.getElementById('reportMonthSelect').value, 10);
     var yearVal = parseInt(document.getElementById('reportYearSelect').value, 10);
@@ -493,7 +498,6 @@ async function loadBaoCaoKy() {
         }
 
         var tongSuatSang = 0, tongSuatTrua = 0, tongSuatToi = 0;
-        var donGiaMacDinh = 30000;
 
         filteredData.forEach(function (record) {
             var sumSang = 0, sumTrua = 0, sumToi = 0;
@@ -506,7 +510,7 @@ async function loadBaoCaoKy() {
             tongSuatTrua += sumTrua;
             tongSuatToi += sumToi;
             var totalRow = sumSang + sumTrua + sumToi;
-            var thanhTien = totalRow * donGiaMacDinh;
+            var thanhTien = sumSang * DON_GIA_SANG + sumTrua * DON_GIA_TRUA + sumToi * DON_GIA_TOI;
 
             html += `<tr>`;
             html += `<td style="font-weight: bold;">${record.ngayDat}</td>`;
@@ -518,17 +522,17 @@ async function loadBaoCaoKy() {
             html += `</tr>`;
         });
         tbody.innerHTML = html;
-        renderBangTongThang(tongSuatSang, tongSuatTrua, tongSuatToi, donGiaMacDinh);
+        renderBangTongThang(tongSuatSang, tongSuatTrua, tongSuatToi);
     } catch (e) {
         console.error(e);
         alert("Lỗi khi tải dữ liệu báo cáo từ Server!");
     }
 }
 
-function renderBangTongThang(tongSang, tongTrua, tongToi, donGia) {
-    var tienSang = tongSang * donGia;
-    var tienTrua = tongTrua * donGia;
-    var tienToi = tongToi * donGia;
+function renderBangTongThang(tongSang, tongTrua, tongToi) {
+    var tienSang = tongSang * DON_GIA_SANG;
+    var tienTrua = tongTrua * DON_GIA_TRUA;
+    var tienToi = tongToi * DON_GIA_TOI;
     var tongCongSuat = tongSang + tongTrua + tongToi;
     var tongCongTien = tienSang + tienTrua + tienToi;
 
@@ -557,19 +561,19 @@ function renderBangTongThang(tongSang, tongTrua, tongToi, donGia) {
                     <tr>
                         <td style="padding: 10px; font-weight: bold; text-align: left;">Sáng</td>
                         <td style="padding: 10px;">${tongSang.toLocaleString('vi-VN')}</td>
-                        <td style="padding: 10px;">${donGia.toLocaleString('vi-VN')} đ</td>
+                        <td style="padding: 10px;">${DON_GIA_SANG.toLocaleString('vi-VN')} đ</td>
                         <td style="padding: 10px; text-align: right; font-weight: bold;">${tienSang.toLocaleString('vi-VN')} đ</td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold; text-align: left;">Trưa</td>
                         <td style="padding: 10px;">${tongTrua.toLocaleString('vi-VN')}</td>
-                        <td style="padding: 10px;">${donGia.toLocaleString('vi-VN')} đ</td>
+                        <td style="padding: 10px;">${DON_GIA_TRUA.toLocaleString('vi-VN')} đ</td>
                         <td style="padding: 10px; text-align: right; font-weight: bold;">${tienTrua.toLocaleString('vi-VN')} đ</td>
                     </tr>
                     <tr>
                         <td style="padding: 10px; font-weight: bold; text-align: left;">Tối</td>
                         <td style="padding: 10px;">${tongToi.toLocaleString('vi-VN')}</td>
-                        <td style="padding: 10px;">${donGia.toLocaleString('vi-VN')} đ</td>
+                        <td style="padding: 10px;">${DON_GIA_TOI.toLocaleString('vi-VN')} đ</td>
                         <td style="padding: 10px; text-align: right; font-weight: bold;">${tienToi.toLocaleString('vi-VN')} đ</td>
                     </tr>
                     <tr style="background: #f8fafc; font-weight: bold; font-size: 14px;">
