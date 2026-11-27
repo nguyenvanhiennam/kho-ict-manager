@@ -2349,6 +2349,7 @@ function renderBangBienBan() {
     if (!tbody) return;
     if (danhSachHangBienBan.length === 0) {
         tbody.innerHTML = `<tr><td colspan="7" style="padding: 20px; text-align: center; color: #64748b;">Chưa có sản phẩm lỗi. Nhấn nút [+] Thêm Sản Phẩm Lỗi ở bên dưới.</td></tr>`;
+        capNhatTongSoLuongBienBan();
         return;
     }
     var html = "";
@@ -2379,10 +2380,26 @@ function renderBangBienBan() {
         `;
     });
     tbody.innerHTML = html;
+    capNhatTongSoLuongBienBan();
+}
+
+function capNhatTongSoLuongBienBan() {
+    var tong = 0;
+    (danhSachHangBienBan || []).forEach(function (item) {
+        tong += parseInt(item.soLuong) || 0;
+    });
+    var el = document.getElementById('bbTongSoLuong');
+    if (el) el.innerText = tong;
 }
 
 function capNhatItemBienBan(idx, field, val) {
     danhSachHangBienBan[idx][field] = val;
+    if (field === 'soLuong') capNhatTongSoLuongBienBan();
+}
+
+function capNhatItemBienBan(idx, field, val) {
+    danhSachHangBienBan[idx][field] = val;
+    if (field === 'soLuong') capNhatTongSoLuongBienBan();
 }
 
 function themDongBienBan() {
@@ -2398,6 +2415,14 @@ function xoaHangBienBan(index) {
 // In biên bản: CSS @media print trong index.html chỉ in phần biên bản và ẩn các nút
 function inBienBan() {
     window.print();
+}
+function capNhatTongSoLuongBienBan() {
+    var tong = 0;
+    (danhSachHangBienBan || []).forEach(function (item) {
+        tong += parseInt(item.soLuong) || 0;
+    });
+    var el = document.getElementById('bbTongSoLuong');
+    if (el) el.innerText = tong;
 }
 
 function taiLaiBienBan() {
@@ -2469,7 +2494,8 @@ function guiEmailBienBan() {
         "• Vận đơn số: " + vanDon + "\n" +
         "• Bên bàn giao: " + taiXe + " (" + ncc + ")\n" +
         "• SĐT liên hệ kho: " + sdtKho + "\n\n" +
-        "CHI TIẾT HÀNG HƯ HỎNG / LỖI:\n" + danhSachSpText + "\n\n" +
+        "CHI TIẾT HÀNG HƯ HỎNG / LỖI:\n" + danhSachSpText + "\n" +
+"TỔNG SỐ LƯỢNG: " + danhSachHangBienBan.reduce(function (s, i) { return s + (parseInt(i.soLuong) || 0); }, 0) + "\n\n" +
         "NHỜ ANH CHỊ CHO KHO HƯỚNG XỬ LÍ TIẾP THEO\n\n" +
         "Trân trọng,\nKho Tổng FPT Shop Miền Nam";
 

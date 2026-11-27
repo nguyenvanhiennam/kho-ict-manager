@@ -550,6 +550,8 @@ input:focus, select:focus, textarea:focus {
     th:nth-child(4), td:nth-child(4) { width: 115px !important; text-align: center; }
     th:nth-child(5), td:nth-child(5) { width: 36px !important;  text-align: center; }
     th:nth-child(6), td:nth-child(6) { width: 135px !important; text-align: center; }
+    tfoot td:last-child { display: none !important; }
+    tfoot td:first-child { width: auto !important; }
 
     /* Bỏ viền, nền, bo góc của ô nhập để chữ trông như in thường */
     table input,
