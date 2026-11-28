@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="home-active">
 <head>
   <base target="_top">
   <meta charset="utf-8">
@@ -36,6 +36,70 @@
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+    }
+    /* Trang chủ: ẩn thanh trượt (vẫn cuộn được bằng chuột/cảm ứng) */
+    html.home-active { scrollbar-width: none; -ms-overflow-style: none; }
+    html.home-active::-webkit-scrollbar, html.home-active body::-webkit-scrollbar { width: 0; height: 0; display: none; }
+  </style>
+  <style>
+    /* ===== ẨN THANH TRƯỢT CỦA TRANG (vẫn cuộn được bằng chuột/cảm ứng) ===== */
+    html, body { scrollbar-width: none; -ms-overflow-style: none; }
+    html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+    /* ===== TRANG CHỦ ===== */
+    body #trangChuTab .home-hero {
+      position: relative; overflow: hidden; text-align: center; color: #fff;
+      padding: 48px 24px 44px; border-radius: 20px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%) !important;
+      box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.45);
+    }
+    body.xmas #trangChuTab .home-hero {
+      background: linear-gradient(135deg, #8b1a1a 0%, #b91c1c 45%, #166534 100%) !important;
+      box-shadow: 0 12px 30px -10px rgba(139, 26, 26, 0.5);
+    }
+    #trangChuTab .home-hero::before, #trangChuTab .home-hero::after {
+      content: ''; position: absolute; border-radius: 50%; background: rgba(255,255,255,0.08);
+    }
+    #trangChuTab .home-hero::before { width: 260px; height: 260px; top: -100px; right: -60px; }
+    #trangChuTab .home-hero::after  { width: 180px; height: 180px; bottom: -80px; left: -40px; }
+    #trangChuTab .home-hero > * { position: relative; z-index: 1; }
+    #trangChuTab .home-hero-icon {
+      width: 76px; height: 76px; margin: 0 auto 14px; font-size: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 22px; backdrop-filter: blur(4px);
+    }
+    #trangChuTab .home-hero-title { margin: 0 0 8px; font-size: 28px; font-weight: 800; letter-spacing: .5px; color: #fff; }
+    #trangChuTab .home-hero-sub { margin: 0 0 18px; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.8); }
+    #trangChuTab .home-hero-date {
+      display: inline-block; padding: 8px 20px; border-radius: 30px; font-size: 14px; font-weight: 700;
+      background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.35); color: #fef08a;
+    }
+    #trangChuTab .home-section-title {
+      margin: 26px 4px 14px; font-size: 14px; font-weight: 800; letter-spacing: 1px;
+      text-transform: uppercase; color: #64748b;
+    }
+    #trangChuTab .home-grid {
+      display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    }
+    #trangChuTab .home-card {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-align: left;
+      padding: 18px; background: #fff; border: 1px solid #e2e8f0; border-top: 4px solid var(--c);
+      border-radius: 14px; cursor: pointer; font-family: inherit;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: transform .2s, box-shadow .2s;
+    }
+    #trangChuTab .home-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -8px rgba(15,23,42,0.25); }
+    #trangChuTab .home-card-icon {
+      width: 44px; height: 44px; font-size: 22px; border-radius: 12px; margin-bottom: 4px;
+      display: flex; align-items: center; justify-content: center;
+      background: color-mix(in srgb, var(--c) 14%, white);
+    }
+    #trangChuTab .home-card-title { font-size: 15px; font-weight: 800; color: #0f172a; }
+    #trangChuTab .home-card-desc { font-size: 12.5px; color: #64748b; line-height: 1.45; }
+    @media (max-width: 600px) {
+      body #trangChuTab .home-hero { padding: 34px 16px; }
+      #trangChuTab .home-hero-title { font-size: 21px; }
+      #trangChuTab .home-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
   </style>
 </head>
@@ -80,13 +144,11 @@
 
   <!-- 0. TRANG CHỦ -->
   <div id="trangChuTab" class="tab-content active">
-    <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 60px 30px; border-radius: 16px; text-align: center; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2); min-height: 450px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-      <div style="font-size: 48px; margin-bottom: 15px;">🏢</div>
-      <h1 style="margin: 0 0 10px 0; font-size: 28px; font-weight: 800; letter-spacing: 0.5px;">HỆ THỐNG KHO TỔNG MIỀN NAM</h1>
-      <p style="margin: 0 0 20px 0; font-size: 16px; color: #94a3b8; font-weight: 500;">Kho Máy ICT Miền Nam & Kho HCM - FPT Shop</p>
-      <div style="display: inline-block; background: rgba(37, 99, 235, 0.2); border: 1px solid rgba(37, 99, 235, 0.4); padding: 8px 20px; border-radius: 30px; font-size: 14px; font-weight: 600; color: #60a5fa;">
-        📅 Ngày vận hành: <span id="txtNgayDashboard">--</span>
-      </div>
+    <div class="home-hero">
+      <div class="home-hero-icon">🏢</div>
+      <h1 class="home-hero-title">HỆ THỐNG KHO TỔNG MIỀN NAM</h1>
+      <p class="home-hero-sub">TỔNG KHO ICT MIỀN NAM</p>
+      <div class="home-hero-date">📅 Ngày vận hành: <span id="txtNgayDashboard">--</span></div>
     </div>
   </div>
 
@@ -1042,6 +1104,16 @@
     document.getElementById('drawerOverlay').classList.remove('show');
   }
 
+  function moTabTuTrangChu(tabId) {
+    var btn = null;
+    document.querySelectorAll('.drawer-tab-btn').forEach(function(b) {
+      var oc = b.getAttribute('onclick') || '';
+      if (oc.indexOf("'" + tabId + "'") !== -1) btn = b;
+    });
+    switchTab(tabId, btn);
+    window.scrollTo({ top: 0 });
+  }
+
   function switchTab(tabId, btn) {
     var tabs = ['trangChuTab', 'keHoachNhapTab', 'datComTab', 'baoCaoDatComTab', 'thongBaoVcTab', 'thuHoiTab', 'traVanDonTab', 'thoiVuTab', 'vatTuTab'];
     tabs.forEach(function(id) {
@@ -1054,6 +1126,7 @@
     if (target) target.classList.add('active');
     if (btn) btn.classList.add('active');
 
+    document.documentElement.classList.toggle('home-active', tabId === 'trangChuTab');
     localStorage.setItem('activeMainTab', tabId); // ghi nhớ tab đang mở
     closeDrawer();
   }
