@@ -135,18 +135,18 @@
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 <div class="side-drawer" id="sideDrawer">
   <div class="drawer-header">
-    <h3 class="drawer-title">📌 MENU CHỨC NĂNG</h3>
+    <h3 class="drawer-title">MENU CHỨC NĂNG</h3>
     <button type="button" class="drawer-close" onclick="closeDrawer()">✕</button>
   </div>
-  <button type="button" class="drawer-tab-btn active" onclick="switchTab('trangChuTab', this)">🏠 0. Trang Chủ Tổng Quan</button>
-  <button type="button" class="drawer-tab-btn" onclick="switchTab('keHoachNhapTab', this)">📋 1. Tiến độ nhập hàng</button>
-  <button type="button" class="drawer-tab-btn" onclick="switchTab('datComTab', this)">🍱 2. Đặt Ăn Văn Phòng</button>
-  <button type="button" class="drawer-tab-btn" onclick="switchTab('baoCaoDatComTab', this)">📅 3. Báo Cáo Đặt Cơm</button>
-  <button type="button" class="drawer-tab-btn" onclick="switchTab('thongBaoVcTab', this)">🚚 4. Thông Báo Vận Chuyển</button>
-  <button type="button" class="drawer-tab-btn" onclick="switchTab('thuHoiTab', this)">📋 5. Quản Lý Thu Hồi Vận Đơn</button>
-  <button type="button" class="drawer-tab-btn" onclick="switchTab('traVanDonTab', this)">📤 6. Trả Vận Đơn Cho NVC</button>
-  <button type="button" class="drawer-tab-btn" onclick="switchTab('thoiVuTab', this)">⏱️ 7. Chấm Công Thời Vụ</button>
-  <button type="button" class="drawer-tab-btn" onclick="switchTab('vatTuTab', this)">📦 8. Theo Dõi Vật Tư Kho</button>
+  <button type="button" class="drawer-tab-btn active" onclick="switchTab('trangChuTab', this)">0. Trang Chủ Tổng Quan</button>
+  <button type="button" class="drawer-tab-btn" onclick="switchTab('keHoachNhapTab', this)">1. Tiến độ nhập hàng</button>
+  <button type="button" class="drawer-tab-btn" onclick="switchTab('datComTab', this)">2. Đặt Ăn Văn Phòng</button>
+  <button type="button" class="drawer-tab-btn" onclick="switchTab('baoCaoDatComTab', this)">3. Báo Cáo Đặt Cơm</button>
+  <button type="button" class="drawer-tab-btn" onclick="switchTab('thongBaoVcTab', this)">4. Thông Báo Vận Chuyển</button>
+  <button type="button" class="drawer-tab-btn" onclick="switchTab('thuHoiTab', this)">5. Quản Lý Thu Hồi Vận Đơn</button>
+  <button type="button" class="drawer-tab-btn" onclick="switchTab('traVanDonTab', this)">6. Trả Vận Đơn Cho NVC</button>
+  <button type="button" class="drawer-tab-btn" onclick="switchTab('thoiVuTab', this)">7. Chấm Công Thời Vụ</button>
+  <button type="button" class="drawer-tab-btn" onclick="switchTab('vatTuTab', this)">8. Theo Dõi Vật Tư Kho</button>
 </div>
 
 <!-- MAIN WORKSPACE CONTAINER -->
@@ -155,9 +155,9 @@
   <!-- 0. TRANG CHỦ -->
   <div id="trangChuTab" class="tab-content active">
     <div class="home-hero">
-      <div class="home-hero-icon">🏢</div>
+      <div class="home-hero-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/><path d="M3 21h18"/></svg></div>
       <h1 class="home-hero-title">KHO TỔNG ICT MIỀN NAM</h1>
-      <div class="home-hero-date">📅 Ngày vận hành: <span id="txtNgayDashboard">--</span></div>
+      <div class="home-hero-date">Ngày vận hành: <span id="txtNgayDashboard">--</span></div>
     </div>
   </div>
 
@@ -170,16 +170,16 @@
 
     <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; flex-wrap: wrap;">
       <button type="button" id="subTabKeHoachBtn" onclick="switchSubKeHoachTab('hienTai')" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 4px rgba(37,99,235,0.2);">
-        📋 Kế Hoạch Hôm Nay (<span id="txtNgayHienTai">--</span>)
+        Kế Hoạch Hôm Nay (<span id="txtNgayHienTai">--</span>)
       </button>
       <button type="button" id="subTabBienBanBtn" onclick="switchSubKeHoachTab('bienBan')" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">
-        📄 Biên Bản Kiểm Hàng
+        Biên Bản Kiểm Hàng
       </button>
       <button type="button" id="subTabLichSuBtn" onclick="switchSubKeHoachTab('lichSu')" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">
-        📜 Lịch Sử Nhập Hàng
+        Lịch Sử Nhập Hàng
       </button>
       <button type="button" id="subTabTrackingBtn" onclick="switchSubKeHoachTab('tracking')" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">
-        ⚡ Theo Dõi Nhập Hàng
+        Theo Dõi Nhập Hàng
       </button>
     </div>
 
@@ -189,15 +189,15 @@
         <div style="display: flex; align-items: center; gap: 12px;">
           <input type="file" id="excelKeHoachFile" accept=".xlsx, .xls, .csv" style="display: none;" onchange="uploadKeHoachFile(this)">
           <button type="button" onclick="document.getElementById('excelKeHoachFile').click()" style="background: #2563eb; color: white; padding: 10px 18px; border-radius: 8px; font-weight: bold; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-            📁 Tải Lên Excel
+            Tải Lên Excel
           </button>
         </div>
         <div style="display: flex; align-items: center; gap: 10px;">
           <button type="button" id="btnLuuThayDoi" onclick="if(typeof luuKeHoachThuCong === 'function') luuKeHoachThuCong(event);" style="background: #16a34a; color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; border: none; cursor: pointer;">
-            💾 Lưu
+            Lưu
           </button>
           <button type="button" onclick="if(typeof loadKeHoachData === 'function') loadKeHoachData(event);" style="background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer;">
-            🔄 Tải Lại
+            Tải Lại
           </button>
         </div>
       </div>
@@ -228,7 +228,7 @@
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
         <button type="button" onclick="if(typeof themDonKeHoachMoi === 'function') themDonKeHoachMoi(event);" style="background: #16a34a; color: white; width: 42px; height: 42px; border-radius: 8px; font-weight: bold; font-size: 22px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">+</button>
-        <button type="button" onclick="if(typeof moPopupBaoCaoNhap === 'function') moPopupBaoCaoNhap(event);" style="background: #16a34a; color: white; padding: 12px 24px; border-radius: 8px; font-weight: bold; font-size: 14px; border: none; cursor: pointer;">📊 ĐỔ BÁO CÁO NHẬP</button>
+        <button type="button" onclick="if(typeof moPopupBaoCaoNhap === 'function') moPopupBaoCaoNhap(event);" style="background: #16a34a; color: white; padding: 12px 24px; border-radius: 8px; font-weight: bold; font-size: 14px; border: none; cursor: pointer;">ĐỔ BÁO CÁO NHẬP</button>
       </div>
     </div>
 
@@ -236,10 +236,10 @@
     <div id="subViewBienBan" class="sub-view-content" style="display: none;">
       <div style="display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 15px;" class="thao-tac-in-an">
         <button type="button" onclick="if(typeof guiEmailBienBan === 'function') guiEmailBienBan(event);" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px;">
-          📧 Gửi Email Biên Bản
+          Gửi Email Biên Bản
         </button>
-        <button type="button" onclick="if(typeof lamMoiBienBan === 'function') lamMoiBienBan(event);" style="padding: 10px 20px; background: #64748b; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">🔄 Làm Mới Biên Bản</button>
-        <button type="button" onclick="if(typeof inBienBan === 'function') inBienBan(event);" style="padding: 10px 24px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">🖨️ In Biên Bản</button>
+        <button type="button" onclick="if(typeof lamMoiBienBan === 'function') lamMoiBienBan(event);" style="padding: 10px 20px; background: #64748b; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Làm Mới Biên Bản</button>
+        <button type="button" onclick="if(typeof inBienBan === 'function') inBienBan(event);" style="padding: 10px 24px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">In Biên Bản</button>
       </div>
 
       <!-- Header Biên Bản -->
@@ -328,7 +328,7 @@
       </div>
 
       <div style="border: 2px dashed #94a3b8; padding: 8px; text-align: center; border-radius: 6px; margin-top: 15px; margin-bottom: 15px; background: #fafafa;">
-        <input type="text" class="input-ghi-chu-tra" value="📦 HÀNG MÓP TRẢ LẠI CHO NGƯỜI GIAO HÀNG MANG VỀ" style="border: none; background: transparent; width: 100%; text-align: center; font-weight: bold; color: #1e293b; font-size: 12.5px; outline: none;">
+        <input type="text" class="input-ghi-chu-tra" value="HÀNG MÓP TRẢ LẠI CHO NGƯỜI GIAO HÀNG MANG VỀ" style="border: none; background: transparent; width: 100%; text-align: center; font-weight: bold; color: #1e293b; font-size: 12.5px; outline: none;">
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; text-align: center; margin-top: 10px;">
@@ -347,18 +347,18 @@
     <div id="subViewLichSu" class="sub-view-content" style="display: none;">
       <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 20px; display: flex; gap: 15px; flex-wrap: wrap; align-items: flex-end;">
         <div>
-          <label style="font-weight: 600; color: #334155; font-size: 13px; display: block; margin-bottom: 5px;">📅 Lọc Theo Ngày:</label>
+          <label style="font-weight: 600; color: #334155; font-size: 13px; display: block; margin-bottom: 5px;">Lọc Theo Ngày:</label>
           <input type="date" id="filterLichSuNgay" onchange="locLichSuNhapHang()" style="padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; background: white;">
         </div>
         <div>
-          <label style="font-weight: 600; color: #334155; font-size: 13px; display: block; margin-bottom: 5px;">📅 Lọc Theo Tháng:</label>
+          <label style="font-weight: 600; color: #334155; font-size: 13px; display: block; margin-bottom: 5px;">Lọc Theo Tháng:</label>
           <input type="month" id="filterLichSuThang" onchange="locLichSuNhapHang()" style="padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; background: white;">
         </div>
         <div>
-          <button type="button" onclick="if(typeof resetBoLocLichSu === 'function') resetBoLocLichSu(event);" style="padding: 9px 16px; background: #e2e8f0; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; color: #475569;">🔄 Xóa Bộ Lọc</button>
+          <button type="button" onclick="if(typeof resetBoLocLichSu === 'function') resetBoLocLichSu(event);" style="padding: 9px 16px; background: #e2e8f0; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; color: #475569;">Xóa Bộ Lọc</button>
         </div>
         <div style="margin-left: auto;">
-          <button type="button" onclick="if(typeof taiFileExcelLichSu === 'function') taiFileExcelLichSu(event);" style="padding: 10px 20px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">📥 Tải Excel Lịch Sử</button>
+          <button type="button" onclick="if(typeof taiFileExcelLichSu === 'function') taiFileExcelLichSu(event);" style="padding: 10px 20px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Tải Excel Lịch Sử</button>
         </div>
       </div>
 
@@ -390,13 +390,13 @@
       <div style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
         <div style="margin-bottom: 20px; display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
           <input type="text" id="webTrackingInput" placeholder="Bắn máy quét hoặc nhập số định danh..." onkeydown="if(event.key==='Enter'){ event.preventDefault(); if(typeof xuLyThemSoDinhDanh === 'function') xuLyThemSoDinhDanh(); }" style="flex: 1; min-width: 250px; padding: 12px 15px; border: 2px solid #2563eb; border-radius: 8px; font-size: 16px; font-weight: bold;" autofocus>
-          <button type="button" onclick="event.preventDefault(); if(typeof xuLyThemSoDinhDanh === 'function') xuLyThemSoDinhDanh(event);" style="padding: 12px 24px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px;">📥 Xác Nhận Quét</button>
-          <button type="button" onclick="if(typeof taiLaiDuLieuTracking === 'function') taiLaiDuLieuTracking(event);" id="btnTaiLaiTracking" style="padding: 12px 18px; background: #0284c7; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">🔄 Tải Lại Dữ Liệu</button>
-          <button type="button" onclick="if(typeof xoaTatCaTracking === 'function') xoaTatCaTracking(event);" style="padding: 12px 18px; background: #fee2e2; color: #dc2626; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">🗑️ Xóa Tất Cả</button>
+          <button type="button" onclick="event.preventDefault(); if(typeof xuLyThemSoDinhDanh === 'function') xuLyThemSoDinhDanh(event);" style="padding: 12px 24px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 15px;">Xác Nhận Quét</button>
+          <button type="button" onclick="if(typeof taiLaiDuLieuTracking === 'function') taiLaiDuLieuTracking(event);" id="btnTaiLaiTracking" style="padding: 12px 18px; background: #0284c7; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Tải Lại Dữ Liệu</button>
+          <button type="button" onclick="if(typeof xoaTatCaTracking === 'function') xoaTatCaTracking(event);" style="padding: 12px 18px; background: #fee2e2; color: #dc2626; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Xóa Tất Cả</button>
         </div>
         <div id="trackingStatusMsg" style="display: none; padding: 10px 15px; border-radius: 6px; margin-bottom: 15px; font-weight: bold;"></div>
         <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
-          <label style="margin:0; text-transform:none; font-weight:600; color:#334155;">📅 Lọc theo tháng:</label>
+          <label style="margin:0; text-transform:none; font-weight:600; color:#334155;">Lọc theo tháng:</label>
           <input type="month" id="filterTrackingThang" onchange="renderWebTrackingTable()" style="width:auto; padding:8px 12px; border:1px solid #cbd5e1; border-radius:6px; background:white;">
           <button type="button" onclick="datThangHienTaiTracking()" style="padding:9px 14px; background:#e2e8f0; border:none; border-radius:6px; font-weight:bold; cursor:pointer; color:#475569;">Tháng này</button>
           <span id="trackingDemThang" style="font-weight:bold; color:#2563eb;"></span>
@@ -458,31 +458,31 @@
     </div>
 
     <div style="margin: 20px 0;">
-      <label style="font-weight: 600; color: #334155;">📅 NGÀY ĐẶT:</label>
+      <label style="font-weight: 600; color: #334155;">NGÀY ĐẶT:</label>
       <input type="date" id="ngayDat" style="padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; margin-left: 10px;">
     </div>
 
     <div style="margin: 15px 0;">
-      <label style="font-weight: 600; color: #334155;">📁 TỆP EXCEL ĐIỂM DANH (.XLSX / .CSV):</label><br>
+      <label style="font-weight: 600; color: #334155;">TỆP EXCEL ĐIỂM DANH (.XLSX / .CSV):</label><br>
       <input type="file" id="excelFile" accept=".xlsx, .xls, .csv" style="margin-top: 8px;">
     </div>
 
-    <button type="button" class="btn-upload" id="btnNhanDienExcel" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">🔍 1. Nhận Diện Số Lượng Điểm Danh</button>
+    <button type="button" class="btn-upload" id="btnNhanDienExcel" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">1. Nhận Diện Số Lượng Điểm Danh</button>
     <p id="status" style="margin-top: 10px; font-weight: bold;"></p>
 
     <div id="attendanceWarningArea" style="display: none; margin-top: 15px; gap: 15px;">
       <div style="flex: 1; background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 15px;">
-        <h4 style="color: #991b1b; margin: 0 0 8px 0;">⏰ Nhân Viên Đi Muộn (> 08:30)</h4>
+        <h4 style="color: #991b1b; margin: 0 0 8px 0;">Nhân Viên Đi Muộn (> 08:30)</h4>
         <ul id="lateStaffList" style="margin: 0; padding-left: 20px; color: #7f1d1d; font-size: 13px;"></ul>
       </div>
       <div style="flex: 1; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 15px;">
-        <h4 style="color: #334155; margin: 0 0 8px 0;">🔴 Nhân Viên Vắng Mặt Hôm Nay</h4>
+        <h4 style="color: #334155; margin: 0 0 8px 0;">Nhân Viên Vắng Mặt Hôm Nay</h4>
         <ul id="absentStaffList" style="margin: 0; padding-left: 20px; color: #475569; font-size: 13px;"></ul>
       </div>
     </div>
 
     <div id="resultArea" style="display: none; margin-top: 25px;">
-      <h4 style="color: #1e293b; margin-bottom: 12px;">📊 BẢNG THỰC ĐƠN CHI TIẾT THEO NHÓM:</h4>
+      <h4 style="color: #1e293b; margin-bottom: 12px;">BẢNG THỰC ĐƠN CHI TIẾT THEO NHÓM:</h4>
       <div style="overflow-x: auto;">
         <table border="1" style="width: 100%; border-collapse: collapse; text-align: center; background: white;">
           <thead>
@@ -501,7 +501,7 @@
         </table>
       </div>
       <div style="margin-top: 20px; text-align: right;">
-        <button type="button" id="btnXacNhanDatCom" onclick="if(typeof openPopupXacNhan === 'function') openPopupXacNhan(event);" style="padding: 12px 25px; background: #16a34a; color: white; border: none; border-radius: 6px; font-weight: bold; font-size: 15px; cursor: pointer;">✅ Hoàn Tất & Xem Tổng Hợp Đặt Cơm</button>
+        <button type="button" id="btnXacNhanDatCom" onclick="if(typeof openPopupXacNhan === 'function') openPopupXacNhan(event);" style="padding: 12px 25px; background: #16a34a; color: white; border: none; border-radius: 6px; font-weight: bold; font-size: 15px; cursor: pointer;">Hoàn Tất & Xem Tổng Hợp Đặt Cơm</button>
       </div>
     </div>
   </div>
@@ -539,10 +539,10 @@
         </select>
       </div>
       <div style="flex: 1; min-width: 180px;">
-        <button type="button" onclick="if(typeof loadBaoCaoKy === 'function') loadBaoCaoKy(event);" style="width: 100%; padding: 11px; background: #ea580c; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">📅 Xem Báo Cáo Kỳ</button>
+        <button type="button" onclick="if(typeof loadBaoCaoKy === 'function') loadBaoCaoKy(event);" style="width: 100%; padding: 11px; background: #ea580c; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Xem Báo Cáo Kỳ</button>
       </div>
     </div>
-    <h3 id="reportTitlePeriod" style="color: #1e293b; margin-bottom: 15px; font-size: 16px;">📊 BÁO CÁO KỲ:</h3>
+    <h3 id="reportTitlePeriod" style="color: #1e293b; margin-bottom: 15px; font-size: 16px;">BÁO CÁO KỲ:</h3>
     <div style="overflow-x: auto;">
       <table border="1" class="result-table" style="width: 100%; border-collapse: collapse; text-align: center; background: white;">
         <thead>
@@ -571,7 +571,7 @@
     <div style="background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
         <h3 style="margin: 0; color: #1e293b; font-size: 18px; display: flex; align-items: center; gap: 8px;">
-          🚚 Lập Kế Hoạch Thông Báo Nhà Vận Chuyển
+          Lập Kế Hoạch Thông Báo Nhà Vận Chuyển
         </h3>
         <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
           <label style="font-weight: bold; font-size: 13px;">Nhà vận chuyển:</label>
@@ -640,14 +640,14 @@
         </table>
       </div>
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-        <button type="button" onclick="if(typeof themDongThongBao === 'function') themDongThongBao(event);" style="padding: 10px 16px; background: #0284c7; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">➕ Thêm dòng hàng</button>
-        <button type="button" onclick="if(typeof taoPopupThongBaoNVC === 'function') taoPopupThongBaoNVC(event);" style="padding: 12px 28px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; box-shadow: 0 4px 6px rgba(22, 163, 74, 0.3);">✨ Xác Nhận & Xem Popup Thông Báo</button>
+        <button type="button" onclick="if(typeof themDongThongBao === 'function') themDongThongBao(event);" style="padding: 10px 16px; background: #0284c7; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Thêm dòng hàng</button>
+        <button type="button" onclick="if(typeof taoPopupThongBaoNVC === 'function') taoPopupThongBaoNVC(event);" style="padding: 12px 28px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; box-shadow: 0 4px 6px rgba(22, 163, 74, 0.3);">Xác Nhận & Xem Popup Thông Báo</button>
       </div>
 
       <!-- CÀI ĐẶT DANH MỤC NHÀ VẬN CHUYỂN & KÝ GỬI -->
       <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #cbd5e1; margin-top: 25px;">
         <h3 style="margin-top: 0; color: #1e293b; font-size: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-          ⚙️ Cài Đặt Danh Mục Nhà Vận Chuyển & Hình Thức Ký Gửi
+          Cài Đặt Danh Mục Nhà Vận Chuyển & Hình Thức Ký Gửi
         </h3>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
           <div style="border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; background: white;">
@@ -676,9 +676,9 @@
     <div class="header-banner"><h2>5. QUẢN LÝ THU HỒI VẬN ĐƠN</h2></div>
     <div class="main-module-content" style="padding: 10px 0;">
       <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-        <button type="button" onclick="if(typeof switchSubThuHoiTab === 'function') switchSubThuHoiTab('scan', event);" id="subTabThuHoiScanBtn" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">📥 Quét & Ghi Nhận Thu Hồi</button>
-        <button type="button" onclick="if(typeof switchSubThuHoiTab === 'function') switchSubThuHoiTab('lichSu', event);" id="subTabThuHoiLichSuBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">📊 Lịch Sử Thu Hồi</button>
-        <button type="button" onclick="if(typeof switchSubThuHoiTab === 'function') switchSubThuHoiTab('caiDatNVC', event);" id="subTabThuHoiNVCBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">⚙️ Quản Lý Nhà Vận Chuyển</button>
+        <button type="button" onclick="if(typeof switchSubThuHoiTab === 'function') switchSubThuHoiTab('scan', event);" id="subTabThuHoiScanBtn" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Quét & Ghi Nhận Thu Hồi</button>
+        <button type="button" onclick="if(typeof switchSubThuHoiTab === 'function') switchSubThuHoiTab('lichSu', event);" id="subTabThuHoiLichSuBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">Lịch Sử Thu Hồi</button>
+        <button type="button" onclick="if(typeof switchSubThuHoiTab === 'function') switchSubThuHoiTab('caiDatNVC', event);" id="subTabThuHoiNVCBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">Quản Lý Nhà Vận Chuyển</button>
       </div>
       <div id="baoCaoNVCBox" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 25px;"></div>
 
@@ -686,7 +686,7 @@
       <div id="subViewThuHoiScan" class="thu-hoi-sub-view">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
           <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
-            <h3 style="margin-top: 0; color: #1e293b; margin-bottom: 15px;">📦 Scan Vận Đơn Đi Giao</h3>
+            <h3 style="margin-top: 0; color: #1e293b; margin-bottom: 15px;">Scan Vận Đơn Đi Giao</h3>
             <div style="display: flex; gap: 10px; margin-bottom: 15px;">
               <input type="text" id="inputVdDiGiao" placeholder="Quét vận đơn đi giao..." onkeydown="if(event.key==='Enter'){ event.preventDefault(); xuLyScanDiGiao(); }" style="flex: 1; padding: 10px; border: 2px solid #2563eb; border-radius: 6px; font-weight: bold;">
               <button type="button" onclick="event.preventDefault(); if(typeof xuLyScanDiGiao === 'function') xuLyScanDiGiao(event);" style="background: #2563eb; color: white; border: none; padding: 10px 15px; border-radius: 6px; font-weight: bold; cursor: pointer;">Thêm</button>
@@ -710,7 +710,7 @@
           </div>
 
           <div style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
-            <h3 style="margin-top: 0; color: #16a34a; margin-bottom: 15px;">🔄 Scan Vận Đơn Thu Hồi</h3>
+            <h3 style="margin-top: 0; color: #16a34a; margin-bottom: 15px;">Scan Vận Đơn Thu Hồi</h3>
             <div style="display: flex; gap: 10px; margin-bottom: 15px;">
               <input type="text" id="inputVdThuHoi" placeholder="Quét vận đơn thu hồi..." onkeydown="if(event.key==='Enter'){ event.preventDefault(); xuLyScanThuHoi(); }" style="flex: 1; padding: 10px; border: 2px solid #16a34a; border-radius: 6px; font-weight: bold;">
               <button type="button" onclick="event.preventDefault(); if(typeof xuLyScanThuHoi === 'function') xuLyScanThuHoi(event);" style="background: #16a34a; color: white; border: none; padding: 10px 15px; border-radius: 6px; font-weight: bold; cursor: pointer;">Xác Nhận</button>
@@ -737,7 +737,7 @@
 
       <!-- SUB-VIEW 2: LỊCH SỬ THU HỒI -->
       <div id="subViewThuHoiLichSu" class="thu-hoi-sub-view" style="display: none; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
-        <h3>📊 Bảng Lịch Sử & Đối Soát Thu Hồi Vận Đơn</h3>
+        <h3>Bảng Lịch Sử & Đối Soát Thu Hồi Vận Đơn</h3>
         <div style="overflow-x: auto; margin-top: 15px;">
           <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
             <thead>
@@ -759,7 +759,7 @@
 
       <!-- SUB-VIEW 3: QUẢN LÝ NVC -->
       <div id="subViewThuHoiCaiDatNVC" class="thu-hoi-sub-view" style="display: none; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 600px;">
-        <h3>⚙️ Thêm / Xóa Nhà Vận Chuyển</h3>
+        <h3>Thêm / Xóa Nhà Vận Chuyển</h3>
         <div style="display: flex; gap: 10px; margin-bottom: 20px;">
           <input type="text" id="inputTenNVC" placeholder="Nhập tên nhà vận chuyển mới..." style="flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;">
           <button type="button" onclick="if(typeof themNhaVuyenChuyen === 'function') themNhaVuyenChuyen(event);" style="background: #16a34a; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;">Thêm Mới</button>
@@ -772,14 +772,14 @@
   <!-- 6. TRẢ VẬN ĐƠN CHO NVC -->
   <div id="traVanDonTab" class="tab-content" style="padding: 20px;">
     <div class="header-banner">
-      <h2 style="margin: 0 0 5px 0; font-size: 22px;">📤 6. TRẢ VẬN ĐƠN CHO NHÀ VẬN CHUYỂN</h2>
+      <h2 style="margin: 0 0 5px 0; font-size: 22px;">6. TRẢ VẬN ĐƠN CHO NHÀ VẬN CHUYỂN</h2>
       <p style="margin: 0; color: #94a3b8; font-size: 14px;">Quản lý quét mã, lưu trữ database và lịch sử trả vận đơn NVC</p>
     </div>
 
     <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; flex-wrap: wrap;">
-      <button type="button" onclick="switchSubTraNVCTab('scan')" id="subTabTraScanBtn" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">📥 Quét & Trả Vận Đơn</button>
-      <button type="button" onclick="switchSubTraNVCTab('lichSu')" id="subTabTraLichSuBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">📊 Lịch Sử Trả Vận Đơn</button>
-      <button type="button" onclick="switchSubTraNVCTab('caiDatNVC')" id="subTabTraNVCBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">⚙️ Quản Lý Nhà Vận Chuyển</button>
+      <button type="button" onclick="switchSubTraNVCTab('scan')" id="subTabTraScanBtn" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Quét & Trả Vận Đơn</button>
+      <button type="button" onclick="switchSubTraNVCTab('lichSu')" id="subTabTraLichSuBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">Lịch Sử Trả Vận Đơn</button>
+      <button type="button" onclick="switchSubTraNVCTab('caiDatNVC')" id="subTabTraNVCBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">Quản Lý Nhà Vận Chuyển</button>
     </div>
 
     <!-- SUB-VIEW 1 -->
@@ -817,14 +817,14 @@
 
       <div style="text-align: right;">
         <button type="button" onclick="if(typeof luuDanhSachTraNVC === 'function') luuDanhSachTraNVC(event);" style="padding: 12px 28px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; box-shadow: 0 2px 4px rgba(22,163,74,0.2);">
-          💾 Lưu & Đưa Dữ Liệu Lên Database
+          Lưu & Đưa Dữ Liệu Lên Database
         </button>
       </div>
     </div>
 
     <!-- SUB-VIEW 2 -->
     <div id="subViewTraLichSu" class="tra-nvc-sub-view" style="display: none; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
-      <h3>📊 Bảng Lịch Sử Trả Vận Đơn Cho Nhà Vận Chuyển</h3>
+      <h3>Bảng Lịch Sử Trả Vận Đơn Cho Nhà Vận Chuyển</h3>
       <div style="overflow-x: auto; margin-top: 15px;">
         <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
           <thead>
@@ -845,7 +845,7 @@
 
     <!-- SUB-VIEW 3 -->
     <div id="subViewTraCaiDatNVC" class="tra-nvc-sub-view" style="display: none; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 600px;">
-      <h3>⚙️ Thêm / Xóa Nhà Vận Chuyển Trả</h3>
+      <h3>Thêm / Xóa Nhà Vận Chuyển Trả</h3>
       <div style="display: flex; gap: 10px; margin-bottom: 20px;">
         <input type="text" id="inputTenNVCTra" placeholder="Nhập tên nhà vận chuyển mới..." style="flex: 1; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;">
         <button type="button" onclick="if(typeof themNVCTra === 'function') themNVCTra(event);" style="background: #16a34a; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;">Thêm Mới</button>
@@ -857,20 +857,20 @@
   <!-- 7. CHẤM CÔNG THỜI VỤ -->
   <div id="thoiVuTab" class="tab-content" style="padding: 20px;">
     <div class="header-banner">
-      <h2 style="margin: 0 0 5px 0; font-size: 22px;">⏱️ 7. CHẤM CÔNG & QUẢN LÝ NHÂN SỰ THỜI VỤ</h2>
+      <h2 style="margin: 0 0 5px 0; font-size: 22px;">7. CHẤM CÔNG & QUẢN LÝ NHÂN SỰ THỜI VỤ</h2>
       <p style="margin: 0; color: #94a3b8; font-size: 14px;">Chấm công nhà cung ứng, tính chi phí tự động và báo cáo đối soát</p>
     </div>
 
     <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; flex-wrap: wrap;">
-      <button type="button" onclick="switchSubThoiVuTab('nhapLieu')" id="subTabThoiVuNhapLieuBtn" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">📝 Nhập Liệu Chấm Công</button>
-      <button type="button" onclick="switchSubThoiVuTab('baoCao')" id="subTabThoiVuBaoCaoBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">📊 Báo Cáo Chi Phí</button>
-      <button type="button" onclick="switchSubThoiVuTab('caiDat')" id="subTabThoiVuCaiDatBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">⚙️ Quản Lý Nhà Cung Ứng</button>
+      <button type="button" onclick="switchSubThoiVuTab('nhapLieu')" id="subTabThoiVuNhapLieuBtn" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Nhập Liệu Chấm Công</button>
+      <button type="button" onclick="switchSubThoiVuTab('baoCao')" id="subTabThoiVuBaoCaoBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">Báo Cáo Chi Phí</button>
+      <button type="button" onclick="switchSubThoiVuTab('caiDat')" id="subTabThoiVuCaiDatBtn" style="padding: 10px 20px; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; cursor: pointer;">Quản Lý Nhà Cung Ứng</button>
     </div>
 
     <!-- SUB-VIEW 1 -->
     <div id="subViewThoiVuNhapLieu" class="thoi-vu-sub-view" style="background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
       <div style="margin-bottom: 20px; max-width: 300px;">
-        <label style="font-weight: 600; color: #334155; font-size: 13px; display: block; margin-bottom: 5px;">📅 Chọn Ngày Chấm Công:</label>
+        <label style="font-weight: 600; color: #334155; font-size: 13px; display: block; margin-bottom: 5px;">Chọn Ngày Chấm Công:</label>
         <input type="date" id="inputThoiVuNgay" style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: bold; background: white;">
       </div>
 
@@ -891,14 +891,14 @@
 
       <div style="text-align: right;">
         <button type="button" onclick="if(typeof luuChamCongThoiVu === 'function') luuChamCongThoiVu(event);" style="padding: 12px 28px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; box-shadow: 0 2px 4px rgba(22,163,74,0.2);">
-          💾 Lưu Chấm Công (Ghi Đè Nếu Trùng Ngày)
+          Lưu Chấm Công (Ghi Đè Nếu Trùng Ngày)
         </button>
       </div>
     </div>
 
     <!-- SUB-VIEW 2 -->
     <div id="subViewThoiVuBaoCao" class="thoi-vu-sub-view" style="display: none; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
-      <h3>📊 Báo Cáo Chi Phí Thời Vụ Theo Nhà Cung Ứng</h3>
+      <h3>Báo Cáo Chi Phí Thời Vụ Theo Nhà Cung Ứng</h3>
       <div style="overflow-x: auto; margin-top: 15px;">
         <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
           <thead>
@@ -922,7 +922,7 @@
 
     <!-- SUB-VIEW 3 -->
     <div id="subViewThoiVuCaiDat" class="thoi-vu-sub-view" style="display: none; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; max-width: 700px;">
-      <h3>⚙️ Thêm / Xóa Nhà Cung Ứng Nhân Sự</h3>
+      <h3>Thêm / Xóa Nhà Cung Ứng Nhân Sự</h3>
       <div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: flex-end; flex-wrap: wrap;">
         <div style="flex: 2; min-width: 200px;">
           <label style="font-weight: 600; font-size: 13px; display: block; margin-bottom: 5px;">Tên Nhà Cung Ứng:</label>
@@ -943,21 +943,21 @@
   <!-- 8. THEO DÕI VẬT TƯ KHO -->
   <div id="vatTuTab" class="tab-content" style="padding: 20px;">
     <div class="header-banner">
-      <h2 style="margin: 0 0 5px 0; font-size: 22px;">📦 8. THEO DÕI VẬT TƯ KHO</h2>
+      <h2 style="margin: 0 0 5px 0; font-size: 22px;">8. THEO DÕI VẬT TƯ KHO</h2>
       <p style="margin: 0; color: #94a3b8; font-size: 14px;">Quản lý xuất - nhập - tồn vật tư đóng gói và công cụ dụng cụ kho</p>
     </div>
 
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; background: white; padding: 15px 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
       <div style="display: flex; gap: 10px; align-items: center;">
-        <label style="font-weight: 600; color: #334155; font-size: 13px;">📅 Chọn Ngày Kiểm Tra:</label>
+        <label style="font-weight: 600; color: #334155; font-size: 13px;">Chọn Ngày Kiểm Tra:</label>
         <input type="date" id="inputVatTuNgay" style="padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: bold; background: white;">
       </div>
       <div style="display: flex; gap: 10px;">
         <button type="button" onclick="if(typeof openThemVatTuModal === 'function') openThemVatTuModal(event);" style="padding: 10px 18px; background: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 6px;">
-          ➕ Thêm Vật Tư Mới
+          Thêm Vật Tư Mới
         </button>
         <button type="button" onclick="if(typeof luuDuLieuVatTu === 'function') luuDuLieuVatTu(event);" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
-          💾 Lưu Thay Đổi
+          Lưu Thay Đổi
         </button>
       </div>
     </div>
@@ -981,7 +981,7 @@
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center;"><input type="number" class="vt-nhap" value="0" min="0" oninput="tinhToanTonKho(this)" style="width: 100px; padding: 6px; text-align: center; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: bold;"></td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center;"><input type="number" class="vt-xuat" value="0" min="0" oninput="tinhToanTonKho(this)" style="width: 100px; padding: 6px; text-align: center; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: bold;"></td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center; font-weight: bold; color: #16a34a; font-size: 15px;" class="vt-ton">0</td>
-            <td style="padding: 10px 12px; border-bottom: 1px solid #e2e8f0; text-align: center;"><button type="button" onclick="xoaDongVatTu(this)" style="background: #fee2e2; color: #dc2626; border: none; padding: 6px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">🗑️</button></td>
+            <td style="padding: 10px 12px; border-bottom: 1px solid #e2e8f0; text-align: center;"><button type="button" onclick="xoaDongVatTu(this)" style="background: #fee2e2; color: #dc2626; border: none; padding: 6px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">Xóa</button></td>
           </tr>
           <tr>
             <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: bold;">2</td>
@@ -989,7 +989,7 @@
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center;"><input type="number" class="vt-nhap" value="0" min="0" oninput="tinhToanTonKho(this)" style="width: 100px; padding: 6px; text-align: center; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: bold;"></td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center;"><input type="number" class="vt-xuat" value="0" min="0" oninput="tinhToanTonKho(this)" style="width: 100px; padding: 6px; text-align: center; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: bold;"></td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center; font-weight: bold; color: #16a34a; font-size: 15px;" class="vt-ton">0</td>
-            <td style="padding: 10px 12px; border-bottom: 1px solid #e2e8f0; text-align: center;"><button type="button" onclick="xoaDongVatTu(this)" style="background: #fee2e2; color: #dc2626; border: none; padding: 6px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">🗑️</button></td>
+            <td style="padding: 10px 12px; border-bottom: 1px solid #e2e8f0; text-align: center;"><button type="button" onclick="xoaDongVatTu(this)" style="background: #fee2e2; color: #dc2626; border: none; padding: 6px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">Xóa</button></td>
           </tr>
           <tr>
             <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: bold;">3</td>
@@ -997,7 +997,7 @@
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center;"><input type="number" class="vt-nhap" value="0" min="0" oninput="tinhToanTonKho(this)" style="width: 100px; padding: 6px; text-align: center; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: bold;"></td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center;"><input type="number" class="vt-xuat" value="0" min="0" oninput="tinhToanTonKho(this)" style="width: 100px; padding: 6px; text-align: center; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: bold;"></td>
             <td style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; text-align: center; font-weight: bold; color: #16a34a; font-size: 15px;" class="vt-ton">0</td>
-            <td style="padding: 10px 12px; border-bottom: 1px solid #e2e8f0; text-align: center;"><button type="button" onclick="xoaDongVatTu(this)" style="background: #fee2e2; color: #dc2626; border: none; padding: 6px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">🗑️</button></td>
+            <td style="padding: 10px 12px; border-bottom: 1px solid #e2e8f0; text-align: center;"><button type="button" onclick="xoaDongVatTu(this)" style="background: #fee2e2; color: #dc2626; border: none; padding: 6px 10px; border-radius: 6px; font-weight: bold; cursor: pointer;">Xóa</button></td>
           </tr>
         </tbody>
       </table>
@@ -1008,7 +1008,7 @@
 <!-- MODAL THÊM VẬT TƯ MỚI -->
 <div id="themVatTuModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
   <div style="background: white; padding: 25px; border-radius: 12px; width: 450px; max-width: 90%; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-    <h3 style="margin-top: 0; color: #1e293b; margin-bottom: 15px;">➕ THÊM VẬT TƯ KHO MỚI</h3>
+    <h3 style="margin-top: 0; color: #1e293b; margin-bottom: 15px;">THÊM VẬT TƯ KHO MỚI</h3>
     <div style="margin-bottom: 15px;">
       <label style="font-weight: 600; font-size: 13px; display: block; margin-bottom: 5px; color: #334155;">Tên Vật Tư:</label>
       <input type="text" id="inputTenVatTuMoi" placeholder="VD: Màng PE, Băng keo trong..." style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 500; box-sizing: border-box;">
@@ -1027,7 +1027,7 @@
     <div class="popup-date" id="popupDateText" style="font-weight: bold; color: #64748b; margin-bottom: 15px;">Ngày đặt: --</div>
     <div class="popup-list" id="popupMealList" style="margin-bottom: 20px;"></div>
     <div class="popup-footer" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e2e8f0; padding-top: 15px; flex-wrap: wrap; gap: 10px;">
-      <button type="button" onclick="copyPopupAsImage()" style="padding: 10px 15px; background: #0ea5e9; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">📋 Sao chép nguyên bảng (Ảnh)</button>
+      <button type="button" onclick="copyPopupAsImage()" style="padding: 10px 15px; background: #0ea5e9; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Sao chép nguyên bảng (Ảnh)</button>
       <div>
         <button type="button" onclick="closePopup()" style="padding: 10px 15px; background: #64748b; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; margin-right: 8px;">Đóng</button>
         <button type="button" onclick="if(typeof submitDatCom === 'function') submitDatCom(event);" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Xác nhận lưu</button>
@@ -1060,8 +1060,8 @@
       </table>
     </div>
     <div style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
-      <button type="button" onclick="copyBaoCaoClipboard()" style="padding: 10px 16px; background: #0ea5e9; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">📋 Copy Text</button>
-      <button type="button" onclick="chupManHinhBaoCao()" style="padding: 10px 16px; background: #16a34a; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">📸 Copy Ảnh</button>
+      <button type="button" onclick="copyBaoCaoClipboard()" style="padding: 10px 16px; background: #0ea5e9; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Copy Text</button>
+      <button type="button" onclick="chupManHinhBaoCao()" style="padding: 10px 16px; background: #16a34a; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Copy Ảnh</button>
       <button type="button" onclick="dongPopupBaoCaoNhap()" style="padding: 10px 16px; background: #64748b; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Đóng</button>
     </div>
   </div>
