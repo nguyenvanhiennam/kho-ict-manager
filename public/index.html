@@ -43,6 +43,32 @@
       height: calc(100vh - 270px); min-height: 300px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
+
+    /* ===== TRANG TRÍ NOEL TRANG CHỦ (chỉ hiện khi bật giao diện Noel) ===== */
+    #trangChuTab .xmas-deco, #trangChuTab .xmas-greeting { display: none; }
+    body.xmas #trangChuTab .home-hero::after { display: none !important; }
+    body.xmas #trangChuTab .home-hero .xmas-deco {
+      display: block; position: absolute !important; bottom: 0; height: 52%; z-index: 1;
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,0.35)); pointer-events: none;
+    }
+    body.xmas #trangChuTab .home-hero .xmas-deco svg { height: 100%; width: auto; display: block; }
+    body.xmas #trangChuTab .home-hero .xmas-tree { left: 7%; }
+    body.xmas #trangChuTab .home-hero .xmas-snowman { right: 7%; }
+    body.xmas #trangChuTab .home-hero .xmas-greeting {
+      display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 24px; text-align: left;
+    }
+    #trangChuTab .xmas-santa { width: 76px; height: 76px; flex: none; }
+    #trangChuTab .xmas-santa svg { width: 100%; height: 100%; display: block; }
+    #trangChuTab .xmas-greeting-title {
+      font-size: 34px; font-weight: 800; line-height: 1.1; color: #fef08a; letter-spacing: .5px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+    }
+    #trangChuTab .xmas-greeting-sub { margin-top: 4px; font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
+    @media (max-width: 700px) {
+      body.xmas #trangChuTab .home-hero .xmas-deco { height: 30%; }
+      #trangChuTab .xmas-greeting-title { font-size: 24px; }
+      #trangChuTab .xmas-santa { width: 56px; height: 56px; }
+    }
     /* Hàng icon Noel cuối banner: căn giữa (không bị lệch trái/phải) */
     body.xmas #trangChuTab .home-hero::after {
       left: 0 !important; right: 0 !important; bottom: 18px !important;
@@ -158,6 +184,7 @@
       <div class="home-hero-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/><path d="M3 21h18"/></svg></div>
       <h1 class="home-hero-title">KHO TỔNG ICT MIỀN NAM</h1>
       <div class="home-hero-date">Ngày vận hành: <span id="txtNgayDashboard">--</span></div>
+      <div class="xmas-greeting"><div class="xmas-santa"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="rgba(255,255,255,0.14)"/><path d="M20 58 Q50 120 80 58 Q82 90 50 96 Q18 90 20 58 Z" fill="#ffffff"/><ellipse cx="50" cy="52" rx="26" ry="24" fill="#fcd9b6"/><path d="M22 56 Q30 84 50 86 Q70 84 78 56 Q66 64 50 64 Q34 64 22 56 Z" fill="#ffffff"/><path d="M34 62 Q50 56 66 62 Q50 70 34 62 Z" fill="#ffffff"/><circle cx="41" cy="48" r="2.8" fill="#1f2937"/><circle cx="59" cy="48" r="2.8" fill="#1f2937"/><circle cx="36" cy="55" r="4" fill="#f9a8a8" opacity=".8"/><circle cx="64" cy="55" r="4" fill="#f9a8a8" opacity=".8"/><circle cx="50" cy="55" r="4.2" fill="#f4a58a"/><path d="M22 38 Q24 10 52 8 Q76 10 78 38 Q50 30 22 38 Z" fill="#dc2626"/><rect x="20" y="33" width="60" height="11" rx="5.5" fill="#ffffff"/><circle cx="56" cy="8" r="7" fill="#ffffff"/></svg></div><div><div class="xmas-greeting-title">Merry Christmas</div><div class="xmas-greeting-sub">Chúc mừng Giáng Sinh và Năm Mới an lành</div></div></div><div class="xmas-deco xmas-tree"><svg viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="60,6 66,22 83,22 69,32 75,48 60,38 45,48 51,32 37,22 54,22" fill="#facc15"/><polygon points="60,18 92,72 28,72" fill="#15803d"/><polygon points="60,44 102,110 18,110" fill="#16a34a"/><polygon points="60,76 112,150 8,150" fill="#15803d"/><rect x="52" y="150" width="16" height="18" rx="2" fill="#7c4a21"/><circle cx="50" cy="62" r="4" fill="#ef4444"/><circle cx="70" cy="56" r="4" fill="#facc15"/><circle cx="40" cy="98" r="4.5" fill="#facc15"/><circle cx="66" cy="92" r="4.5" fill="#ef4444"/><circle cx="82" cy="104" r="4.5" fill="#60a5fa"/><circle cx="32" cy="136" r="5" fill="#ef4444"/><circle cx="58" cy="126" r="5" fill="#60a5fa"/><circle cx="84" cy="138" r="5" fill="#facc15"/><circle cx="96" cy="142" r="0" fill="none"/></svg></div><div class="xmas-deco xmas-snowman"><svg viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="30" y1="96" x2="6" y2="78" stroke="#7c4a21" stroke-width="4" stroke-linecap="round"/><line x1="90" y1="96" x2="114" y2="78" stroke="#7c4a21" stroke-width="4" stroke-linecap="round"/><circle cx="60" cy="130" r="38" fill="#f8fafc"/><circle cx="60" cy="88" r="28" fill="#f8fafc"/><circle cx="60" cy="48" r="22" fill="#ffffff"/><rect x="38" y="30" width="44" height="6" rx="2" fill="#111827"/><rect x="46" y="8" width="28" height="24" rx="3" fill="#111827"/><rect x="46" y="24" width="28" height="5" fill="#dc2626"/><circle cx="52" cy="46" r="2.6" fill="#111827"/><circle cx="68" cy="46" r="2.6" fill="#111827"/><polygon points="60,50 60,56 78,54" fill="#f97316"/><path d="M52 60 Q60 66 68 60" stroke="#111827" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M38 68 Q60 80 82 68 L82 76 Q60 88 38 76 Z" fill="#dc2626"/><rect x="74" y="72" width="9" height="22" rx="3" fill="#dc2626"/><circle cx="60" cy="102" r="3" fill="#111827"/><circle cx="60" cy="118" r="3" fill="#111827"/><circle cx="60" cy="134" r="3" fill="#111827"/></svg></div>
     </div>
   </div>
 
