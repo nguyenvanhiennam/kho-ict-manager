@@ -3002,3 +3002,83 @@ async function luuDuLieuVatTu() {
         alert("❌ Không thể kết nối đến server để lưu dữ liệu vật tư!");
     }
 }
+(function () {
+    var KEY = 'xmasTheme';
+    var bat = localStorage.getItem(KEY) !== 'off';   // mặc định bật
+    var canvas, ctx, flakes = [], raf = null;
+
+    function datTheme(on) {
+        bat = on;
+        document.body.classList.toggle('xmas', on);
+        localStorage.setItem(KEY, on ? 'on' : 'off');
+        if (on) batTuyet(); else tatTuyet();
+    }
+
+    function batTuyet() {
+        if (!canvas) {
+            canvas = document.createElement('canvas');
+            canvas.id = 'xmasSnow';
+            document.body.appendChild(canvas);
+            ctx = canvas.getContext('2d');
+            window.addEventListener('resize', chinhKichThuoc);
+        }
+        canvas.style.display = 'block';
+        chinhKichThuoc();
+        flakes = [];
+        var n = window.innerWidth < 700 ? 40 : 90;
+        for (var i = 0; i < n; i++) flakes.push(taoHat(true));
+        if (!raf) ve();
+    }
+
+    function tatTuyet() {
+        if (raf) cancelAnimationFrame(raf);
+        raf = null;
+        if (canvas) canvas.style.display = 'none';
+    }
+
+    function chinhKichThuoc() {
+        if (!canvas) return;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function taoHat(ngauNhienY) {
+        return {
+            x: Math.random() * window.innerWidth,
+            y: ngauNhienY ? Math.random() * window.innerHeight : -10,
+            r: Math.random() * 3 + 1,
+            vy: Math.random() * 1 + 0.5,
+            vx: Math.random() * 0.6 - 0.3
+        };
+    }
+
+    function ve() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(255,255,255,0.95)';
+        ctx.strokeStyle = 'rgba(148,163,184,0.5)';
+        flakes.forEach(function (f, i) {
+            ctx.beginPath();
+            ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+            f.y += f.vy;
+            f.x += f.vx + Math.sin(f.y / 40) * 0.3;
+            if (f.y > canvas.height + 10) flakes[i] = taoHat(false);
+        });
+        raf = requestAnimationFrame(ve);
+    }
+
+    function khoiTao() {
+        var nut = document.createElement('button');
+        nut.id = 'xmasToggle';
+        nut.type = 'button';
+        nut.title = 'Bật/tắt giao diện Noel';
+        nut.textContent = '🎄';
+        nut.onclick = function () { datTheme(!bat); };
+        document.body.appendChild(nut);
+        datTheme(bat);
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', khoiTao);
+    else khoiTao();
+})();
