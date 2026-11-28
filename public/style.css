@@ -1,8 +1,7 @@
 /* ==========================================================
-   FPT SHOP - KHO TỔNG MIỀN NAM (TRENDY FONT & MODERN UI/UX)
+   FPT SHOP - KHO TỔNG MIỀN NAM (UI HIỆN ĐẠI + GIAO DIỆN NOEL)
    ========================================================== */
 
-/* Nhập font chữ chuẩn hiện đại từ Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 
 :root {
@@ -20,7 +19,6 @@
   --radius-sm: 8px;
 }
 
-/* Áp dụng font chữ và nền chung */
 body {
   font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: var(--bg-gradient);
@@ -35,7 +33,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- TOP HEADER & BAR (GLASSMORPHISM) --- */
+/* --- TOP HEADER --- */
 .app-header {
   display: flex;
   align-items: center;
@@ -68,25 +66,18 @@ body {
   box-shadow: 0 4px 15px rgba(227, 0, 0, 0.3);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.menu-icon-btn:hover { transform: scale(1.08) rotate(5deg); box-shadow: 0 6px 20px rgba(227, 0, 0, 0.4); }
 
-.menu-icon-btn:hover { 
-  transform: scale(1.08) rotate(5deg); 
-  box-shadow: 0 6px 20px rgba(227, 0, 0, 0.4); 
-}
+.app-title-group { display: flex; flex-direction: column; }
 
-.app-title-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.app-title-group h1 { 
-  font-size: 20px; 
-  font-weight: 800; 
+.app-title-group h1 {
+  font-size: 20px;
+  font-weight: 800;
   background: linear-gradient(135deg, #0f172a, var(--fpt-red));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 0; 
-  letter-spacing: -0.2px; 
+  margin: 0;
+  letter-spacing: -0.2px;
 }
 
 .app-title-group p {
@@ -98,132 +89,87 @@ body {
   text-transform: uppercase;
 }
 
-/* --- SIDEBAR DRAWER MENU --- */
+/* --- SIDEBAR DRAWER --- */
 .side-drawer {
-  position: fixed; 
-  top: 0; 
-  left: -380px; 
-  width: 320px; 
-  height: 100%; 
+  position: fixed;
+  top: 0;
+  left: -380px;
+  width: 320px;
+  height: 100%;
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(16px);
-  box-shadow: 20px 0 50px rgba(0, 0, 0, 0.15); 
-  z-index: 1100; 
+  box-shadow: 20px 0 50px rgba(0, 0, 0, 0.15);
+  z-index: 1100;
   transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  padding: 24px 16px; 
-  box-sizing: border-box; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 6px; 
-  border-right: 1px solid rgba(255, 255, 255, 0.8); 
+  padding: 24px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
   overflow-y: auto;
 }
-
 .side-drawer.open { left: 0; }
 
-.drawer-header { 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  border-bottom: 2px solid #f1f5f9; 
-  padding-bottom: 14px; 
-  margin-bottom: 10px; 
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 14px;
+  margin-bottom: 10px;
 }
-
-.drawer-title { 
-  font-size: 15px; 
-  font-weight: 800; 
-  color: var(--fpt-dark); 
-  margin: 0; 
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+.drawer-title { font-size: 15px; font-weight: 800; color: var(--fpt-dark); margin: 0; text-transform: uppercase; letter-spacing: 0.3px; }
+.drawer-close {
+  background: #f1f5f9; color: var(--text-muted); border: none; font-size: 16px; font-weight: bold;
+  width: 32px; height: 32px; border-radius: 50%; cursor: pointer; transition: all 0.2s;
 }
-
-.drawer-close { 
-  background: #f1f5f9; 
-  color: var(--text-muted); 
-  border: none; 
-  font-size: 16px; 
-  font-weight: bold; 
-  width: 32px; 
-  height: 32px; 
-  border-radius: 50%; 
-  cursor: pointer; 
-  transition: all 0.2s; 
-}
-
 .drawer-close:hover { background: #fee2e2; color: var(--fpt-red); transform: scale(1.1); }
 
 .drawer-tab-btn {
-  padding: 12px 16px; 
-  border: none; 
-  background: transparent; 
-  color: #334155; 
-  font-weight: 600; 
-  border-radius: var(--radius-sm); 
-  cursor: pointer; 
-  font-size: 14px; 
-  text-align: left; 
-  transition: all 0.2s ease; 
-  display: flex; 
-  align-items: center; 
-  gap: 12px; 
-  width: 100%;
+  padding: 12px 16px; border: none; background: transparent; color: #334155; font-weight: 600;
+  border-radius: var(--radius-sm); cursor: pointer; font-size: 14px; text-align: left;
+  transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; width: 100%;
 }
-
-.drawer-tab-btn:hover { 
-  background: #fff1f1; 
-  color: var(--fpt-red); 
-  transform: translateX(6px); 
-}
-
-.drawer-tab-btn.active { 
-  background: linear-gradient(135deg, #fff1f1, #ffe3e3); 
-  color: var(--fpt-red); 
+.drawer-tab-btn:hover { background: #fff1f1; color: var(--fpt-red); transform: translateX(6px); }
+.drawer-tab-btn.active {
+  background: linear-gradient(135deg, #fff1f1, #ffe3e3);
+  color: var(--fpt-red);
   border-left: 4px solid var(--fpt-red);
   font-weight: 700;
   box-shadow: 0 4px 12px rgba(227, 0, 0, 0.06);
 }
 
-.drawer-overlay { 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 100%; 
-  background: rgba(15, 23, 42, 0.4); 
-  z-index: 1050; 
-  display: none; 
-  backdrop-filter: blur(4px); 
-  transition: opacity 0.3s ease;
+.drawer-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.4); z-index: 1050; display: none;
+  backdrop-filter: blur(4px); transition: opacity 0.3s ease;
 }
-
 .drawer-overlay.show { display: block; }
 
-/* --- MAIN WORKSPACE CONTAINER (GLASS CARD) --- */
-.main-card { 
-  background: var(--card-bg); 
+/* --- MAIN CARD --- */
+.main-card {
+  background: var(--card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  max-width: 1520px; 
-  margin: 0 auto; 
-  padding: 36px 40px; 
-  border-radius: var(--radius-lg); 
-  box-shadow: var(--shadow-float); 
-  border: 1px solid var(--glass-border); 
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 36px 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+  border: 1px solid var(--glass-border);
   animation: fadeIn 0.4s ease-out;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* --- BANNER TIÊU ĐỀ --- */
-.header-banner { 
-  text-align: center; 
-  padding: 20px; 
-  margin-bottom: 30px; 
+.header-banner {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 30px;
   background: linear-gradient(135deg, rgba(227, 0, 0, 0.03) 0%, rgba(15, 23, 42, 0.04) 100%);
   border-radius: var(--radius-md);
   border: 1px solid rgba(227, 0, 0, 0.15);
@@ -231,146 +177,91 @@ body {
   position: relative;
   overflow: hidden;
 }
-
-.header-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 6px;
-  height: 100%;
-  background: var(--fpt-red);
-}
-
-.header-banner h2 { 
-  color: var(--fpt-dark); 
-  margin: 0; 
-  font-size: 24px; 
-  font-weight: 900; 
+.header-banner::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: var(--fpt-red); }
+.header-banner h2 {
+  color: var(--fpt-dark);
+  margin: 0;
+  font-size: 24px;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   background: linear-gradient(135deg, #0f172a, var(--fpt-red));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.header-banner p { color: var(--text-muted); font-size: 14px; margin-top: 6px; font-weight: 600; letter-spacing: 0.2px; }
 
-.header-banner p { 
-  color: var(--text-muted); 
-  font-size: 14px; 
-  margin-top: 6px; 
-  font-weight: 600; 
-  letter-spacing: 0.2px;
-}
-
-/* --- FORMS, INPUTS & SELECTS --- */
+/* --- FORM --- */
 .form-group { margin-bottom: 20px; }
 
-label { 
-  font-weight: 700; 
-  display: block; 
-  margin-bottom: 8px; 
-  color: var(--fpt-dark); 
-  font-size: 13px; 
-  text-transform: uppercase; 
-  letter-spacing: 0.3px; 
+label {
+  font-weight: 700; display: block; margin-bottom: 8px; color: var(--fpt-dark);
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.3px;
 }
 
 input[type="date"], input[type="file"], input[type="number"], input[type="text"], select, textarea {
-  width: 100%; 
-  padding: 12px 16px; 
-  border-radius: var(--radius-sm); 
-  border: 1.5px solid #cbd5e1; 
-  box-sizing: border-box; 
-  background: rgba(255, 255, 255, 0.95); 
-  font-size: 14px; 
-  font-family: inherit; 
-  color: var(--text-main); 
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid #cbd5e1;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text-main);
   transition: all 0.25s ease;
 }
-
 input:hover, select:hover, textarea:hover { border-color: #94a3b8; }
-
-input:focus, select:focus, textarea:focus { 
-  outline: none; 
-  border-color: var(--fpt-red); 
-  background: #fff; 
-  box-shadow: 0 0 0 4px rgba(227, 0, 0, 0.12); 
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--fpt-red); background: #fff; box-shadow: 0 0 0 4px rgba(227, 0, 0, 0.12);
 }
 
-/* --- ACTION BUTTONS --- */
-.btn-upload { 
-  background: linear-gradient(135deg, #ff416c, var(--fpt-red)); 
-  color: white; 
-  font-weight: 700; 
-  border: none; 
-  padding: 13px 20px; 
-  border-radius: var(--radius-sm); 
-  cursor: pointer; 
-  font-size: 14px; 
-  width: 100%; 
-  box-shadow: 0 4px 15px rgba(227, 0, 0, 0.25); 
-  transition: all 0.25s ease; 
-}
-
-.btn-upload:hover { 
-  opacity: 0.95; 
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(227, 0, 0, 0.35); 
-}
-
-.btn-confirm { 
-  background: linear-gradient(135deg, #10b981, #059669); 
-  color: white; 
-  font-weight: 700; 
-  border: none; 
-  padding: 14px 20px; 
-  border-radius: var(--radius-sm); 
-  cursor: pointer; 
-  font-size: 14px; 
-  width: 100%; 
-  margin-top: 20px; 
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25); 
-  transition: all 0.25s ease;
-}
-
-.btn-confirm:hover { 
-  opacity: 0.95; 
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35); 
-}
-
-/* --- DATA TABLES --- */
-.result-table { 
-  width: 100%; 
-  border-collapse: separate; 
-  border-spacing: 0; 
-  margin-top: 16px; 
-  border-radius: var(--radius-sm); 
-  overflow: hidden; 
-  border: 1px solid #cbd5e1; 
+/* Ô địa chỉ kho trong biên bản (textarea tự xuống dòng) */
+textarea.bb-autogrow {
+  border: none;
+  border-bottom: 1px dotted #000;
+  border-radius: 0;
+  padding: 4px 0;
+  background: transparent;
+  font-weight: 500;
   font-size: 13px;
-  background: #fff;
+  line-height: 1.4;
+  resize: none;
+  overflow: hidden;
+  box-shadow: none;
 }
+textarea.bb-autogrow:focus { box-shadow: none; background: transparent; }
 
-.result-table th { 
-  background: var(--fpt-dark); 
-  color: #ffffff; 
-  padding: 12px 10px; 
-  font-size: 12px; 
-  font-weight: 700; 
-  text-transform: uppercase; 
-  letter-spacing: 0.5px; 
+/* --- BUTTONS --- */
+.btn-upload {
+  background: linear-gradient(135deg, #ff416c, var(--fpt-red));
+  color: white; font-weight: 700; border: none; padding: 13px 20px;
+  border-radius: var(--radius-sm); cursor: pointer; font-size: 14px; width: 100%;
+  box-shadow: 0 4px 15px rgba(227, 0, 0, 0.25); transition: all 0.25s ease;
 }
+.btn-upload:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(227, 0, 0, 0.35); }
 
-.result-table td { 
-  padding: 12px 10px; 
-  text-align: center; 
-  border-bottom: 1px solid #f1f5f9; 
-  border-right: 1px solid #f1f5f9;
-  vertical-align: middle; 
-  transition: background-color 0.15s ease;
+.btn-confirm {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white; font-weight: 700; border: none; padding: 14px 20px;
+  border-radius: var(--radius-sm); cursor: pointer; font-size: 14px; width: 100%; margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25); transition: all 0.25s ease;
 }
+.btn-confirm:hover { opacity: 0.95; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35); }
 
+/* --- TABLES --- */
+.result-table {
+  width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 16px;
+  border-radius: var(--radius-sm); overflow: hidden; border: 1px solid #cbd5e1; font-size: 13px; background: #fff;
+}
+.result-table th {
+  background: var(--fpt-dark); color: #ffffff; padding: 12px 10px; font-size: 12px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.result-table td {
+  padding: 12px 10px; text-align: center; border-bottom: 1px solid #f1f5f9; border-right: 1px solid #f1f5f9;
+  vertical-align: middle; transition: background-color 0.15s ease;
+}
 .result-table tr:hover td { background-color: #fff5f5; }
 .chay-col { background-color: #f0fdf4; }
 .total-row { background: #fff7ed; font-weight: 800; color: #c2410c; font-size: 14px; }
@@ -380,49 +271,19 @@ input:focus, select:focus, textarea:focus {
 .tab-content.active { display: block; }
 
 #tableBody input[type="number"] {
-  width: 60px !important;
-  height: 34px !important;
-  padding: 4px !important;
-  text-align: center !important;
-  border: 1px solid #cbd5e1 !important;
-  border-radius: 6px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  background-color: #f8fafc !important;
+  width: 60px !important; height: 34px !important; padding: 4px !important; text-align: center !important;
+  border: 1px solid #cbd5e1 !important; border-radius: 6px !important; font-size: 14px !important;
+  font-weight: 600 !important; background-color: #f8fafc !important;
 }
+#tableBody input[type="number"]:focus { border-color: #2563eb !important; background-color: #ffffff !important; outline: none !important; }
 
-#tableBody input[type="number"]:focus {
-  border-color: #2563eb !important;
-  background-color: #ffffff !important;
-  outline: none !important;
-}
-
-/* --- UI/UX THÊM NHÂN VIÊN MỚI --- */
+/* --- THÊM NHÂN VIÊN --- */
 .add-staff-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  margin-bottom: 20px;
+  background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 20px;
 }
-
-.add-staff-card .card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 12px;
-}
-
-.add-staff-card .card-header .icon {
-  font-size: 22px;
-  background: #e0f2fe;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-
+.add-staff-card .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px; }
+.add-staff-card .card-header .icon { font-size: 22px; background: #e0f2fe; padding: 8px 12px; border-radius: 8px; }
 .add-staff-card .card-header h4 { margin: 0; font-size: 16px; color: #1e293b; }
 .add-staff-card .card-header p { margin: 2px 0 0 0; font-size: 12px; color: #64748b; }
 .add-staff-card .card-body { display: flex; flex-wrap: wrap; gap: 15px; align-items: flex-end; }
@@ -430,30 +291,16 @@ input:focus, select:focus, textarea:focus {
 .add-staff-card .input-group label { font-size: 13px; font-weight: 600; color: #475569; }
 
 .btn-save-staff {
-  padding: 10px 20px;
-  background: #16a34a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  height: 38px;
-  transition: background 0.2s;
+  padding: 10px 20px; background: #16a34a; color: white; border: none; border-radius: 6px;
+  font-weight: bold; cursor: pointer; height: 38px; transition: background 0.2s;
 }
-
 .btn-save-staff:hover { background: #15803d; }
 
-/* --- POPUP MODAL ĐỒNG BỘ MẪU --- */
+/* --- POPUP --- */
 .popup-card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 460px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  text-align: center;
-  border: 1px solid #e2e8f0;
+  background: white; padding: 30px; border-radius: 12px; width: 460px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15); text-align: center; border: 1px solid #e2e8f0;
 }
-
 .popup-title { color: #dc2626; font-size: 20px; font-weight: bold; margin: 0 0 5px 0; }
 .popup-date { color: #475569; font-size: 14px; font-weight: 600; margin-bottom: 20px; }
 .popup-list { background: #ffffff; border: 1px solid #f1f5f9; border-radius: 8px; padding: 0 15px; margin-bottom: 20px; text-align: left; }
@@ -463,173 +310,267 @@ input:focus, select:focus, textarea:focus {
 .popup-total { display: flex; justify-content: space-between; padding: 15px 0; border-top: 2px solid #cbd5e1; font-size: 16px; font-weight: bold; color: #ea580c; text-align: left; }
 .popup-footer { display: flex; justify-content: flex-end; gap: 10px; }
 
+/* Khối chữ thay ô nhập khi in (chỉ hiện lúc in) */
+.print-mirror { display: none; }
+
+/* ==========================================================
+   GIAO DIỆN NOEL (bật bằng class "xmas" trên <body>, do xmas.js điều khiển)
+   ========================================================== */
+@media screen {
+  body.xmas {
+    --fpt-red: #c62828;
+    --fpt-red-hover: #e53935;
+    --fpt-dark: #14532d;
+    --bg-gradient: linear-gradient(180deg, #fff5f5 0%, #f0fdf4 100%);
+    --glass-border: rgba(198, 40, 40, 0.18);
+    background-image: var(--bg-gradient);
+  }
+
+  /* Dây đèn nhấp nháy trên đầu trang */
+  body.xmas::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 14px;
+    z-index: 900;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 10px 7px, #ef4444 4px, transparent 5px) 0 0 / 60px 14px,
+      radial-gradient(circle at 30px 7px, #22c55e 4px, transparent 5px) 0 0 / 60px 14px,
+      radial-gradient(circle at 50px 7px, #facc15 4px, transparent 5px) 0 0 / 60px 14px,
+      linear-gradient(#14532d, #14532d) 0 0 / 100% 3px no-repeat;
+    animation: xmasBlink 1.6s infinite alternate;
+  }
+  @keyframes xmasBlink {
+    from { filter: brightness(0.85); }
+    to   { filter: brightness(1.3); }
+  }
+
+  /* Tiêu đề: mũ Noel + cây thông */
+  body.xmas .app-title-group h1::before { content: "🎅 "; -webkit-text-fill-color: initial; }
+  body.xmas .app-title-group h1::after  { content: " 🎄"; -webkit-text-fill-color: initial; }
+
+  /* Header và thẻ chính: viền đỏ, tuyết phủ phía trên */
+  body.xmas .app-header,
+  body.xmas .main-card {
+    border-top: 4px solid #c62828;
+    box-shadow: 0 10px 30px -5px rgba(20, 83, 45, 0.18);
+  }
+  body.xmas .app-header::after {
+    content: "";
+    position: absolute;
+    left: 14px; right: 14px; top: -4px;
+    height: 8px;
+    background: radial-gradient(circle at 8px 0, #fff 7px, transparent 8px) 0 0 / 22px 8px repeat-x;
+    pointer-events: none;
+  }
+
+  body.xmas .menu-icon-btn {
+    background: linear-gradient(135deg, #e53935, #b71c1c);
+    box-shadow: 0 4px 15px rgba(183, 28, 28, 0.35);
+  }
+
+  body.xmas .header-banner {
+    background: linear-gradient(135deg, rgba(198, 40, 40, 0.06) 0%, rgba(20, 83, 45, 0.08) 100%);
+    border-color: rgba(198, 40, 40, 0.25);
+  }
+  body.xmas .header-banner::before { background: repeating-linear-gradient(180deg, #c62828 0 12px, #fff 12px 24px, #15803d 24px 36px); }
+  body.xmas .header-banner h2::before { content: "🎁 "; -webkit-text-fill-color: initial; }
+
+  /* Menu bên trái */
+  body.xmas .drawer-title::before { content: "🎄 "; }
+  body.xmas .drawer-tab-btn:hover { background: #fef2f2; }
+  body.xmas .drawer-tab-btn.active { background: linear-gradient(135deg, #fef2f2, #dcfce7); }
+
+  /* Trang chủ: nền đỏ - xanh thông */
+  body.xmas #trangChuTab > div:first-child {
+    background: linear-gradient(135deg, #7f1d1d 0%, #14532d 100%) !important;
+    position: relative;
+    overflow: hidden;
+  }
+  body.xmas #trangChuTab > div:first-child::after {
+    content: "🎄  🎁  ⛄  🎁  🎄";
+    position: absolute;
+    bottom: 14px; left: 0; right: 0;
+    text-align: center;
+    font-size: 26px;
+    letter-spacing: 8px;
+    opacity: 0.9;
+  }
+  body.xmas #trangChuTab > div:first-child > div:last-child {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #fde68a !important;
+  }
+
+  /* Đổi nút xanh dương chính (viết inline) sang đỏ Noel */
+  body.xmas button[style*="background: #2563eb"],
+  body.xmas button[style*="background:#2563eb"] {
+    background: #c62828 !important;
+    color: #fff !important;
+  }
+  body.xmas button[style*="background: #2563eb"]:hover { background: #b71c1c !important; }
+
+  /* Tiêu đề bảng sang xanh thông, viền đỏ phía dưới */
+  body.xmas th[style*="#0f172a"], body.xmas tr[style*="#0f172a"],
+  body.xmas th[style*="#1e293b"], body.xmas tr[style*="#1e293b"],
+  body.xmas th[style*="#334155"], body.xmas tr[style*="#334155"],
+  body.xmas .result-table th {
+    background: #14532d !important;
+    color: #fff !important;
+  }
+  body.xmas thead th { border-bottom: 3px solid #c62828; }
+
+  /* Ô nhập khi focus */
+  body.xmas input:focus, body.xmas select:focus, body.xmas textarea:focus {
+    border-color: #c62828;
+    box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.14);
+  }
+  body.xmas .result-table tr:hover td { background-color: #fef2f2; }
+
+  /* Thanh cuộn */
+  body.xmas ::-webkit-scrollbar-thumb { background: #c62828; border-radius: 6px; }
+  body.xmas ::-webkit-scrollbar-track { background: #dcfce7; }
+
+  /* Lớp tuyết và nút bật/tắt (tạo bởi xmas.js) */
+  #xmasSnow { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 800; }
+  #xmasToggle {
+    position: fixed; right: 16px; bottom: 16px; z-index: 950;
+    width: 46px; height: 46px; border-radius: 50%;
+    border: 2px solid #c62828; background: #fff; font-size: 22px; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2); padding: 0;
+  }
+}
+
 /* ================= CSS IN BIÊN BẢN ================= */
 @media print {
-    @page {
-        size: A4 portrait;
-        margin: 4mm 8mm 4mm 8mm;
-    }
+  @page { size: A4 portrait; margin: 4mm 8mm 4mm 8mm; }
 
-    body * {
-        visibility: hidden !important;
-    }
+  body * { visibility: hidden !important; }
+  #subViewBienBan, #subViewBienBan * { visibility: visible !important; }
 
-    #subViewBienBan, #subViewBienBan * {
-        visibility: visible !important;
-    }
+  /* Tắt hết trang trí Noel khi in */
+  #xmasSnow, #xmasToggle { display: none !important; }
+  body::before, body::after { display: none !important; }
 
-    #subViewBienBan {
-        position: absolute !important;
-        left: 0 !important;
-        top: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background: #ffffff !important;
-        box-shadow: none !important;
-        border: none !important;
-        outline: none !important;
-        font-size: 12px !important;
-        line-height: 1.4 !important;
-    }
+  #subViewBienBan {
+    position: absolute !important;
+    left: 0 !important; top: 0 !important;
+    width: 100% !important; max-width: 100% !important;
+    margin: 0 !important; padding: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important; border: none !important; outline: none !important;
+    font-size: 12px !important; line-height: 1.4 !important;
+  }
 
-    button, .thao-tac-in-an, .no-print {
-        display: none !important;
-    }
+  button, .thao-tac-in-an, .no-print { display: none !important; }
 
-    .bb-grid-container, .grid-ban-giao {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 15px !important;
-        border: none !important;
-        padding: 5px 0 !important;
-        margin-bottom: 12px !important;
-        background: transparent !important;
-    }
+  .bb-grid-container, .grid-ban-giao {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 15px !important;
+    border: none !important;
+    padding: 5px 0 !important;
+    margin-bottom: 12px !important;
+    background: transparent !important;
+  }
+  .bb-grid-container div, .grid-ban-giao div {
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+  .bb-grid-container span, .grid-ban-giao span,
+  .bb-grid-container input, .grid-ban-giao input { font-weight: bold !important; color: #000 !important; }
 
-    .bb-grid-container div, .grid-ban-giao div {
-        word-break: break-word !important;
-        overflow-wrap: break-word !important;
-        white-space: normal !important;
-    }
+  /* ---------- BẢNG HÀNG LỖI ---------- */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+    margin-top: 5px !important;
+    margin-bottom: 12px !important;
+  }
+  th, td {
+    border: 1.5px solid #000 !important;
+    padding: 6px 5px !important;
+    font-size: 11px !important;
+    color: #000 !important;
+    vertical-align: middle !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    background: #fff !important;
+  }
 
-    .bb-grid-container span, .grid-ban-giao span,
-    .bb-grid-container input, .grid-ban-giao input {
-        font-weight: bold !important;
-        color: #000 !important;
-    }
+  /* Ẩn cột XÓA (cột 7) */
+  th:nth-child(7), td:nth-child(7) { display: none !important; }
 
-    /* ---------- BẢNG HÀNG LỖI ---------- */
-    table {
-        width: 100% !important;
-        border-collapse: collapse !important;
-        table-layout: fixed !important;
-        margin-top: 5px !important;
-        margin-bottom: 12px !important;
-    }
+  th:nth-child(1), td:nth-child(1) { width: 30px !important;  text-align: center; }
+  th:nth-child(2), td:nth-child(2) { width: 80px !important;  text-align: center; }
+  th:nth-child(3), td:nth-child(3) { width: auto !important;  text-align: left; }
+  th:nth-child(4), td:nth-child(4) { width: 115px !important; text-align: center; }
+  th:nth-child(5), td:nth-child(5) { width: 36px !important;  text-align: center; }
+  th:nth-child(6), td:nth-child(6) { width: 135px !important; text-align: center; }
+  tfoot td:last-child { display: none !important; }
+  tfoot td:first-child { width: auto !important; }
 
-    th, td {
-        border: 1.5px solid #000 !important;
-        padding: 6px 5px !important;
-        font-size: 11px !important;
-        color: #000 !important;
-        vertical-align: middle !important;
-        word-break: break-word !important;
-        overflow-wrap: break-word !important;
-        white-space: normal !important;
-        background: #fff !important;
-    }
+  /* Bỏ viền, nền, bo góc của ô nhập */
+  table input, table select, table textarea {
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    font-family: inherit !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #000 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+  }
+  table input[type="number"]::-webkit-inner-spin-button,
+  table input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none !important; display: none !important; }
 
-    /* Ẩn cột XÓA khi in (cột thứ 7) */
-    th:nth-child(7), td:nth-child(7) { display: none !important; }
+  td:nth-child(3) input { text-align: left !important; }
 
-    th:nth-child(1), td:nth-child(1) { width: 30px !important;  text-align: center; }
-    th:nth-child(2), td:nth-child(2) { width: 80px !important;  text-align: center; }
-    th:nth-child(3), td:nth-child(3) { width: auto !important;  text-align: left; }
-    th:nth-child(4), td:nth-child(4) { width: 115px !important; text-align: center; }
-    th:nth-child(5), td:nth-child(5) { width: 36px !important;  text-align: center; }
-    th:nth-child(6), td:nth-child(6) { width: 135px !important; text-align: center; }
-    tfoot td:last-child { display: none !important; }
-    tfoot td:first-child { width: auto !important; }
+  input[type="text"] { text-transform: uppercase !important; }
 
-    /* Bỏ viền, nền, bo góc của ô nhập để chữ trông như in thường */
-    table input,
-    table select,
-    table textarea {
-        border: none !important;
-        border-radius: 0 !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        outline: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        font-family: inherit !important;
-        font-size: 11px !important;
-        font-weight: 600 !important;
-        color: #000 !important;
-        text-align: center !important;
-        text-transform: uppercase !important;
-        -webkit-appearance: none !important;
-        appearance: none !important;
-    }
+  input.input-ghi-chu-tra {
+    border: none !important; background: transparent !important; text-align: center !important;
+    font-weight: bold !important; width: 100% !important; font-size: 12.5px !important;
+    color: #000 !important; outline: none !important;
+  }
 
-    table input[type="number"]::-webkit-inner-spin-button,
-    table input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none !important;
-        display: none !important;
-    }
+  textarea.bb-autogrow {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    resize: none !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    font-family: inherit !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #000 !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    text-transform: uppercase !important;
+  }
+  table textarea.bb-autogrow { text-align: center !important; font-size: 11px !important; }
 
-    /* Tên hàng căn trái cho dễ đọc */
-    td:nth-child(3) input { text-align: left !important; }
-
-    /* Ô nhập không nằm trong bảng (số phiếu, người giao...) */
-    input[type="text"] {
-        text-transform: uppercase !important;
-    }
-
-    input.input-ghi-chu-tra {
-        border: none !important;
-        background: transparent !important;
-        text-align: center !important;
-        font-weight: bold !important;
-        width: 100% !important;
-        font-size: 12.5px !important;
-        color: #000 !important;
-        outline: none !important;
-    }
-
-    /* Giữ nền in nếu có (ví dụ ô tiêu đề bảng) */
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-    @media print {
-    textarea.bb-autogrow {
-        border: none !important;
-        background: transparent !important;
-        box-shadow: none !important;
-        outline: none !important;
-        resize: none !important;
-        overflow: visible !important;
-        height: auto !important;
-        min-height: 0 !important;
-        padding: 0 !important;
-        width: 100% !important;
-        font-family: inherit !important;
-        font-size: 12px !important;
-        font-weight: 600 !important;
-        color: #000 !important;
-        white-space: pre-wrap !important;
-        word-break: break-word !important;
-        text-transform: uppercase !important;
-    }
-    table textarea.bb-autogrow { text-align: center !important; font-size: 11px !important; }
-    .print-hidden { display: none !important; }
-
-.print-mirror {
+  /* Khối chữ thay ô nhập (script tạo lúc in) */
+  .print-hidden { display: none !important; }
+  .print-mirror {
     display: block !important;
     white-space: pre-wrap !important;
     word-break: break-word !important;
@@ -641,10 +582,10 @@ input:focus, select:focus, textarea:focus {
     line-height: 1.4 !important;
     padding: 2px 0 !important;
     min-height: 1em;
-}
+  }
+  table .print-mirror { font-size: 11px !important; text-align: center; }
+  td:nth-child(3) .print-mirror { text-align: left; }
 
-table .print-mirror { font-size: 11px !important; text-align: center; }
-td:nth-child(3) .print-mirror { text-align: left; }
-}
-.print-mirror { display: none; }
+  /* Giữ màu nền khi in (tiêu đề bảng) */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }

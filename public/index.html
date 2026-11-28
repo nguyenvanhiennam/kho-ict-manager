@@ -37,13 +37,6 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
-    /* In biên bản: chỉ in phần biên bản, ẩn nút bấm */
-    @media print {
-        body * { visibility: hidden; }
-        #subViewBienBan, #subViewBienBan * { visibility: visible; }
-        #subViewBienBan { position: absolute; left: 0; top: 0; width: 100%; display: block !important; }
-        #subViewBienBan button, .thao-tac-in-an { display: none !important; }
-    }
   </style>
 </head>
 <body>
@@ -1077,5 +1070,6 @@
     }
   });
 </script>
+<script src="xmas.js"></script>
 </body>
 </html>
