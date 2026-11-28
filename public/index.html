@@ -37,9 +37,12 @@
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
-    /* Trang chủ: ẩn thanh trượt (vẫn cuộn được bằng chuột/cảm ứng) */
-    html.home-active { scrollbar-width: none; -ms-overflow-style: none; }
-    html.home-active::-webkit-scrollbar, html.home-active body::-webkit-scrollbar { width: 0; height: 0; display: none; }
+    /* Trang chủ: đứng yên, không cuộn */
+    html.home-active, html.home-active body { overflow: hidden !important; height: 100%; }
+    html.home-active #trangChuTab .home-hero {
+      height: calc(100vh - 270px); min-height: 300px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
   </style>
   <style>
     /* ===== ẨN THANH TRƯỢT CỦA TRANG (vẫn cuộn được bằng chuột/cảm ứng) ===== */
@@ -147,7 +150,7 @@
     <div class="home-hero">
       <div class="home-hero-icon">🏢</div>
       <h1 class="home-hero-title">HỆ THỐNG KHO TỔNG MIỀN NAM</h1>
-      <p class="home-hero-sub">TỔNG KHO ICT MIỀN NAM</p>
+      <p class="home-hero-sub">TỔNG KHO ICT MIỀN NAM </p>
       <div class="home-hero-date">📅 Ngày vận hành: <span id="txtNgayDashboard">--</span></div>
     </div>
   </div>
