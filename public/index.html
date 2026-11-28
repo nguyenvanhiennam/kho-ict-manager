@@ -324,6 +324,12 @@
           <button type="button" onclick="if(typeof xoaTatCaTracking === 'function') xoaTatCaTracking(event);" style="padding: 12px 18px; background: #fee2e2; color: #dc2626; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">🗑️ Xóa Tất Cả</button>
         </div>
         <div id="trackingStatusMsg" style="display: none; padding: 10px 15px; border-radius: 6px; margin-bottom: 15px; font-weight: bold;"></div>
+        <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+          <label style="margin:0; text-transform:none; font-weight:600; color:#334155;">📅 Lọc theo tháng:</label>
+          <input type="month" id="filterTrackingThang" onchange="renderWebTrackingTable()" style="width:auto; padding:8px 12px; border:1px solid #cbd5e1; border-radius:6px; background:white;">
+          <button type="button" onclick="datThangHienTaiTracking()" style="padding:9px 14px; background:#e2e8f0; border:none; border-radius:6px; font-weight:bold; cursor:pointer; color:#475569;">Tháng này</button>
+          <span id="trackingDemThang" style="font-weight:bold; color:#2563eb;"></span>
+        </div>
         <div style="overflow-x: auto; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
           <table style="width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap;">
             <thead>
