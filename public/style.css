@@ -627,5 +627,24 @@ input:focus, select:focus, textarea:focus {
         text-transform: uppercase !important;
     }
     table textarea.bb-autogrow { text-align: center !important; font-size: 11px !important; }
+    .print-hidden { display: none !important; }
+
+.print-mirror {
+    display: block !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    font-weight: 600 !important;
+    font-size: inherit !important;
+    color: #000 !important;
+    text-transform: uppercase !important;
+    line-height: 1.4 !important;
+    padding: 2px 0 !important;
+    min-height: 1em;
 }
+
+table .print-mirror { font-size: 11px !important; text-align: center; }
+td:nth-child(3) .print-mirror { text-align: left; }
+}
+.print-mirror { display: none; }
 }

@@ -2371,7 +2371,7 @@ function renderBangBienBan() {
                     <input type="number" value="${sl}" min="1" oninput="capNhatItemBienBan(${idx}, 'soLuong', this.value)" style="width: 60px; padding: 6px; border: 1px solid #cbd5e1; border-radius: 4px; text-align: center; font-weight: bold; font-size: 13px;">
                 </td>
                 <td style="padding: 6px; border: 1px solid #cbd5e1;">
-                    <input type="text" value="${item.tinhTrang || 'Móp méo / Không đạt'}" oninput="capNhatItemBienBan(${idx}, 'tinhTrang', this.value)" style="width: 100%; padding: 6px; border: 1px solid #cbd5e1; border-radius: 4px; text-align: left; font-size: 13px;">
+                    <textarea rows="1" class="bb-autogrow" oninput="capNhatItemBienBan(${idx}, 'tinhTrang', this.value); tuGianTextarea(this);" style="width: 100%; padding: 6px; border: 1px solid #cbd5e1; border-radius: 4px; text-align: left; font-size: 13px; resize: none; overflow: hidden; font-family: inherit; box-sizing: border-box;">${item.tinhTrang || 'Móp méo / Không đạt'}</textarea>
                 </td>
                 <td style="padding: 6px; border: 1px solid #cbd5e1; text-align: center;">
                     <button type="button" onclick="xoaHangBienBan(${idx})" style="background: #fee2e2; color: #dc2626; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12px;">Xóa</button>
@@ -2381,7 +2381,46 @@ function renderBangBienBan() {
     });
     tbody.innerHTML = html;
     capNhatTongSoLuongBienBan();
+    tuGianTatCaTextareaBienBan();
 }
+function tuGianTextarea(el) {
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
+}
+
+function tuGianTatCaTextareaBienBan() {
+    document.querySelectorAll('#subViewBienBan textarea.bb-autogrow').forEach(tuGianTextarea);
+}
+// Khi in: thay ô nhập bằng khối chữ tự xuống dòng
+window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('#subViewBienBan input, #subViewBienBan select, #subViewBienBan textarea').forEach(function (el) {
+        if (el.type === 'button' || el.type === 'hidden') return;
+        var text = '';
+        if (el.tagName === 'SELECT') {
+            text = el.selectedIndex >= 0 ? el.options[el.selectedIndex].text : '';
+        } else {
+            text = el.value || '';
+        }
+        var mirror = document.createElement('div');
+        mirror.className = 'print-mirror';
+        mirror.textContent = text;
+        el.classList.add('print-hidden');
+        el.parentNode.insertBefore(mirror, el.nextSibling);
+    });
+});
+
+window.addEventListener('afterprint', function () {
+    document.querySelectorAll('.print-mirror').forEach(function (m) { m.remove(); });
+    document.querySelectorAll('.print-hidden').forEach(function (el) { el.classList.remove('print-hidden'); });
+});
+
+// Tự giãn khi gõ ở ô địa chỉ và các ô khác
+document.addEventListener('input', function (e) {
+    if (e.target.classList && e.target.classList.contains('bb-autogrow')) tuGianTextarea(e.target);
+});
+
+// Giãn đúng chiều cao ngay trước khi in
+window.addEventListener('beforeprint', tuGianTatCaTextareaBienBan);
 
 function capNhatTongSoLuongBienBan() {
     var tong = 0;
